@@ -31,8 +31,17 @@ Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of f
 
 ### Hello World Plugin v1
 
-Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. Download the contents of the folder "examples/plugin_hello_world_v1" to the folder "plugins" inside the cloudmunch installation folder. The folder structure should now look like this:
+Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "plugins" inside the cloudmunch installation folder. The folder structure should now look like this:
 
 ![Folder structure](screenshots/hello-world-plugin-v1/folder_structure.png)
+
+Switch to the command prompt, navigate to the CloudMunch installation folder and rebuild CloudMunch services 
+
+```bash
+docker-compose down;docker-compose build;docker-compose up -d
+```
+
+![Rebulding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
+
 
 
