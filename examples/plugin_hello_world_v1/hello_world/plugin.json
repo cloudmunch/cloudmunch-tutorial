@@ -1,0 +1,19 @@
+{
+  "_created_by": "vivek@cloudmunch.com",
+  "documentation": {
+    "description": "Hello world plugin"
+  },
+  "author": "Vivek Kodira",
+  "id": "hello_world",
+  "name": "Hello World",
+  "tags": [],
+  "version": "1",
+  "status": "enabled",
+  "execute": {
+    "options": "-debug",
+    "language": "PHP",
+    "main": "hello_world/src/HelloWorld.class.php"
+  },
+  "inputs": {},
+  "outputs": {}
+}
