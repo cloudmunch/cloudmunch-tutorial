@@ -40,9 +40,9 @@ docker-compose down;docker-compose build;docker-compose up -d
 
 **Troubleshooting** If you don't see the plugin in the list, it may be because the JSON is not well formed or because of caching. Verify the JSON and clear cache http://&lt;your_host&gt;:8000/api/reset
 
-- Edit the step, add the phrase you want to see, run the task and check the logs. You should see the phrase you entered in the logs. 
+- Modify the step, add the phrase you want to see, run the task and check the logs. You should see the phrase you entered in the logs. 
 
-![Edit and run the task](screenshots/hello-world-plugin-v1/edit_and_run_task.gif)
+![Modify and run the task](screenshots/hello-world-plugin-v1/edit_and_run_task.gif)
 
 *(Run the task with different inputs to verify that the phrase you enter is what is displayed in the logs)*
 
@@ -52,7 +52,7 @@ Lets understand the files necessary for a plugin. Open up the [hello-world-plugi
 - plugin.json: A definition of the plugin used by our UI. This file contains information and input fields which will be used to configure the plugin before execution
 - src/&lt;Name&gt;.class.php: Actual logic necessary to perform the plugin's task
 - composer.json: Composer file. Used to install the plugin and any of its dependencies
-- install.sh: Installs your plugin. You will typically never need to edit this file and can copy it from any other existing plugin
+- install.sh: Installs your plugin. You will typically never need to modify this file and can copy it from any other existing plugin
 
 Lets consider each file individually and delve into a bit more detail.
 
@@ -76,6 +76,8 @@ We support all html data types. The table below demonstrates how the plugin's co
 |---|---|
 |![plugin.json file](screenshots/hello-world-plugin-v1/text_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_text.png)|
 |![plugin.json file](screenshots/hello-world-plugin-v1/textarea_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_textarea.png)|
+|![plugin.json file](screenshots/hello-world-plugin-v1/radioButton_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_radioButton.png)|
+|![plugin.json file](screenshots/hello-world-plugin-v1/dropdown_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png)|
 
 
 
