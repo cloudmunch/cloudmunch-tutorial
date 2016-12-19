@@ -16,21 +16,11 @@
   },
   "inputs": {
     "phrase": {
-      "type": "radioButton",
+      "type": "text",
       "label": "Phrase",
       "mandatory": false,
       "display": "yes",
-      "defaultValue": "World",
-      "options": [
-        {
-          "label": "World",
-          "value": "World"
-        },
-        {
-          "label": "Universe",
-          "value": "Universe"
-        }
-      ]
+      "defaultValue": "World"
     }
   },
   "outputs": {}
