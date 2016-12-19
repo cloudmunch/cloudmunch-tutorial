@@ -60,13 +60,15 @@ Lets consider each file individually and delve into a bit more detail.
 
 |Definition| UI|
 |---|---|
-|![plugin.json file](screenshots/hello-world-plugin-v1/plugin_json.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_plugin_tab.png)|
+|![plugin definition file](screenshots/hello-world-plugin-v1/plugin_json.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_plugin_tab.png)|
 
 The image on the left is of the plugin.json file. This file contains meta-data about the plugin you are adding and is used by us to display the plugin and when configuring it's inputs. The nodes: `_created_by`, `name`, `description`, `author`, `id`, `version` and `tags` nodes are pretty self-explanatory, so lets discuss `status`, `execute`, `inputs` & `outputs`.
 
 - `status`: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than `enabled` are ignored and will not be available for use within the system.
 - `execute`: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are `PHP`, `Java` and `Ruby`
-- `inputs`: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Tweak values of the nodes `mandatory` (true/false), `display` (yes/no) and `label` to see how the plugin behaves.
+- `inputs`: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". 
+
+**Optional** Change values of the nodes `mandatory (true/false)`, `display (yes/no)` and `label` to see how the display and plugin behavior is changed.
 
 ###### Input Data Types
 
@@ -79,5 +81,12 @@ We support all html data types. The table below demonstrates how the plugin's co
 |![plugin.json file](screenshots/hello-world-plugin-v1/radioButton_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_radioButton.png)|
 |![plugin.json file](screenshots/hello-world-plugin-v1/dropdown_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png)|
 
+The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. These are covered elsewhere (**TBA** *add link to the section with details*) but for now, lets go on to the other files necessary to add a plugin
+
+##### Plugin Source File
+
+![Plugin source file](screenshots/hello-world-plugin-v1/src_file.png)
+
+This file contains the logic necessary to execute the plugin. The logic is explained in the inline comments. We are using [PHP](https://github.com/cloudmunch/CloudMunch-php-SDK-V2/blob/master/README.md) in this example but plugins can also be written in [Ruby](https://github.com/cloudmunch/cloudmunch-Ruby-SDK/blob/master/README.md) and [Java](https://github.com/cloudmunch/CloudMunch-SDK-Java/blob/master/README.md). Do read the respective ReadMe.md files for detailed information on the syntax.
 
 
