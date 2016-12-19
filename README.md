@@ -22,7 +22,7 @@ Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of f
 ### Hello World Plugin v1
 Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. 
 
-- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "plugins" inside the cloudmunch installation folder. The folder structure should now look like this:
+- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "plugins" inside the CloudMunch installation folder. The folder structure should now look like this:
 
 ![Folder structure](screenshots/hello-world-plugin-v1/folder_structure.png)
 
@@ -32,7 +32,7 @@ Lets start with the simplest plugin possible: one that simply logs "Hello world"
 docker-compose down;docker-compose build;docker-compose up -d
 ```
 
-![Rebulding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
+![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
 
 - Once CloudMunch is up, create a new task and try to add this plugin to the task. 
 
@@ -47,18 +47,35 @@ docker-compose down;docker-compose build;docker-compose up -d
 *(Run the task with different inputs to verify that the phrase you enter is what is displayed in the logs)*
 
 #### Plugin files
-Lets understand the files within the [hello-world-plugin-v1](examples/plugin_hello_world_v1/hello_world) folder. Each of the files you will find in the folder are explained in detail below:
+Lets understand the files necessary for a plugin. Open up the [hello-world-plugin-v1](examples/plugin_hello_world_v1/hello_world) folder. Here you will find
 
-##### plugin.json:
-A definition of the plugin used by the CloudMunch UI. The file should contain information and input fields which will be used to configure the plugin before execution
+- plugin.json: A definition of the plugin used by our UI. This file contains information and input fields which will be used to configure the plugin before execution
+- src/&lt;Name&gt;.class.php: Actual logic necessary to perform the plugin's task
+- composer.json: Composer file. Used to install the plugin and any of its dependencies
+- install.sh: Installs your plugin. You will typically never need to edit this file and can copy it from any other existing plugin
 
-##### src/&lt;Name&gt;.class.php
-Actual logic necessary to perform the plugin's task
+Lets consider each file individually and delve into a bit more detail.
 
-##### composer.json
-Composer file. Used to install the plugin and any of its dependencies
+##### Plugin Definition File (plugin.json)
 
-##### install.sh
-Installs your plugin. You will typically never need to edit this file and can copy it from any other existing plugin
+|Definition| UI|
+|---|---|
+|![plugin.json file](screenshots/hello-world-plugin-v1/plugin_json.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_plugin_tab.png)|
+
+The image on the left is of the plugin.json file. This file contains meta-data about the plugin you are adding and is used by us to display the plugin and when configuring it's inputs. The nodes: `_created_by`, `name`, `description`, `author`, `id`, `version` and `tags` nodes are pretty self-explanatory, so lets discuss `status`, `execute`, `inputs` & `outputs`.
+
+- `status`: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than `enabled` are ignored and will not be available for use within the system.
+- `execute`: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are `PHP`, `Java` and `Ruby`
+- `inputs`: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Tweak values of the nodes `mandatory` (true/false), `display` (yes/no) and `label` to see how the plugin behaves.
+
+###### Input Data Types
+
+We support all html data types. The table below demonstrates how the plugin's configuration screen changes based on the content within the `inputs` node. 
+
+|Definition| UI|
+|---|---|
+|![plugin.json file](screenshots/hello-world-plugin-v1/text_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_text.png)|
+|![plugin.json file](screenshots/hello-world-plugin-v1/textarea_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_textarea.png)|
+
 
 
