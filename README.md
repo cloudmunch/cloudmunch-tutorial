@@ -1,7 +1,7 @@
 # CloudMunch Tutorial
 
 ## Introduction
-This document will help you learn how to add your own custom functionality to CloudMunch through a step-by-step process. By the end of the document you would have fetched some data from a google spreadsheet and displayed it as an insight in your application
+This document will help you learn how to add your own custom functionality to CloudMunch through a step-by-step process. 
 
 ## Intended audience
 A developer who wants to install CloudMunch locally, try it out and extend it with his own functionality
@@ -25,6 +25,25 @@ docker-compose down;docker-compose build;docker-compose up -d
 ```
 
 ![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
+
+## Our Aim
+By the end of this exercise our aim is to fetch data from a google spreadsheet and display some insight in an application. To achieve our aim, we'll need to configure a task to retrieve data from a
+
+- Source
+- (in a) Third-party System 
+- (which we'll transform into) Insights
+
+Or in "CloudMunch" language, we'll be configuring a `Task` which will contain a `plugin` configured to retrieve data from a
+
+- Resource
+- (in an) Integration
+- (which we'll use to write into a) Report and Card
+
+## Integrations
+Integrations are essentially references to third-party systems. Integration containing your account crendentials can be added to your application (and used to plugins) to perform tasks on or fetch information from these systems.
+
+
+
 
 ## Plugins
 Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of files and then use docker-compose to rebuild CloudMunch services
