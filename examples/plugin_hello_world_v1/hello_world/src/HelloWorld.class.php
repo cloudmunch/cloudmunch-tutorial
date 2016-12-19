@@ -9,7 +9,8 @@
 	class HelloWorld extends AppAbstract {
 		public function __construct() {}//constructor
 		public function process ( $processParameters ) {
-			$this->getLogHandler()->log( INFO, "Hello world" );
+			$appInput = $processParameters['appInput'];
+			$this->getLogHandler()->log( INFO, "Hello ".$appInput->phrase );
 		}
 	}
 

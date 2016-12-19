@@ -1,7 +1,7 @@
 {
   "_created_by": "vivek@cloudmunch.com",
   "documentation": {
-    "description": "Hello world plugin"
+    "description": "Your first plugin! \n Media lights fetishism nodal point franchise gang soul-delay drugs. Sub-orbital vinyl monofilament weathered physical singularity cartel hacker claymore mine range-rover. Urban motion human tiger-team dolphin smart-tower lights papier-mache katana cardboard rifle systemic. Boat hacker gang smart-film otaku systema. Pistol tiger-team pre-A.I. wonton soup grenade nodal point wristwatch table dome ablative motion drone bomb. San Francisco crypto-otaku free-market grenade voodoo god into denim weathered vinyl 8-bit stimulate. Corrupted shoes shrine hacker decay savant otaku math-monofilament. Katana euro-pop grenade corporation otaku-space dead narrative geodesic. "
   },
   "author": "Vivek Kodira",
   "id": "hello_world",
@@ -14,6 +14,14 @@
     "language": "PHP",
     "main": "hello_world/src/HelloWorld.class.php"
   },
-  "inputs": {},
+  "inputs": {
+    "phrase": {
+      "type": "text",
+      "label": "Phrase",
+      "mandatory": "no",
+      "display": "yes",
+      "defaultValue": "World"
+    }
+  },
   "outputs": {}
 }
