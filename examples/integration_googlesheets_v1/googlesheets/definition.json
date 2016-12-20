@@ -1,0 +1,43 @@
+{
+  "id": "googlesheets",
+  "label": "GoogleSheets",
+  "type": "googlesheets",
+  "display": "yes",
+  "tags": [
+    "engg",
+    "devops",
+    "openshift",
+    "kube"
+  ],
+  "status": "enabled",
+  "documentation": {
+    "description": "GoogleSheets allows users to fetch information from a sheet"
+  },
+  "registrationFields": {
+    "authentication": {
+      "display": "yes",
+      "type": "object",
+      "fields": {
+        "type": {
+          "type": "radioButton",
+          "display": "no",
+          "mandatory": "yes",
+          "label": "Type",
+          "options": [
+            {
+              "label": "Use OAuth",
+              "value": "oauth",
+              "title": "Use Oauth"
+            },
+            {
+              "label": "Don't use Oauth",
+              "value": "basic",
+              "title": "Don't use Oauth"
+            }
+          ],
+          "defaultValue": "oauth"
+        }
+      }
+    }
+  }
+}

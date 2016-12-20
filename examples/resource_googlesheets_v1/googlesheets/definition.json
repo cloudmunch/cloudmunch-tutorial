@@ -1,0 +1,35 @@
+{
+  "id": "googlesheets",
+  "tags": [],
+  "type": "googlesheets",
+  "integration": "googlesheets",
+  "label": "Google Sheets",
+  "component": "Google Sheets Resource",
+  "category": [],
+  "description": "Choose if you'd like insights about your Google Sheets profiles",
+  "fields": {
+    "name": {
+      "label": "Resource Name",
+      "display": "yes",
+      "type": "text",
+      "defaultValue": "",
+      "hint": "Any name you'd like"
+    },
+    "sheet id": {
+      "label": "Sheet ID",
+      "display": "yes",
+      "type": "text",
+      "mandatory": true,
+      "defaultValue": "",
+      "hint": "Enter the sheet ID. You can copy it from the URL"
+    },
+    "range": {
+      "label": "Range",
+      "display": "yes",
+      "type": "text",
+      "mandatory": true,
+      "defaultValue": "",
+      "hint": "Enter the Range you'd like fetched (ex: 'Sheet1!A1:A5')"
+    }
+  }
+}
