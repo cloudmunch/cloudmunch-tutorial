@@ -17,15 +17,6 @@ A developer who wants to install CloudMunch locally, try it out and extend it wi
 ## Install CloudMunch Locally
 
 
-### Rebuild Services
-Several times in this tutorial you'll need to rebuild CloudMunch containers. To do this, execute the commands below from within CloudMunch installation folder.
-
-```bash
-docker-compose down;docker-compose build;docker-compose up -d
-```
-
-![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
-
 ## Our Aim
 By the end of this exercise our aim is to fetch data from a google spreadsheet and display some insight in an application. To achieve our aim, we'll need to configure a task to retrieve data from a
 
@@ -52,7 +43,7 @@ A resource is essentially a data-store or source from which we fetch information
   "integration": "googlesheets",
   "label": "Google Sheets",
   "component": "Google Sheets Resource",
-  "category": [],
+  "category": [ "Tutorial" ],
   "description": "Choose if you'd like insights about your Google Sheets profiles",
   "fields": {
     "name": {
@@ -82,14 +73,35 @@ A resource is essentially a data-store or source from which we fetch information
 }
 ```
 
-**NOTE**
-- Ensure the folder name and the value of the nodes `id` and `type` in the file match
+**NOTE** Ensure the folder name and the value of the nodes `id` and `type` in the file match
 
 The JSON file above is the definition of the integration. The fields `id`, `label`, `type` (`id`=`type`) and `description` are self-explanatory. Lets consider the others
 
 - integration: This tells CloudMunch what integration this resource belongs to. We'll be adding the Integration itself in a bit
-- component: This node is similar to `label`. When adding a resource, the end user may encounter some errors. Those errors will refer to this resource using this 
 
+- component: This node is similar to `label`. When adding a resource, the end user may encounter some errors. Those errors will refer to this resource using the value in this node in their text.
+
+- category: This node tells CloudMunch what category the resource belongs into. Remember this screen? It is displayed when choosing resources. The category you enter will mostly be one of the existing ones from this screen. If you add a new one, the resource will still be displayed, but in that category. But remember to add one: resources without categories are not displayed in the UI.
+
+![Resource category](screenshots/resource_googlesheets_v1/resource_categorization.png)
+
+- fields: This node tells CloudMunch what fields to display when someone is adding this resource into their application. Here, since we are adding a Google Sheets resource, we need the user to enter a name for the resource, the Sheet ID and the Range. The node follows CloudMunch's [Configuration Driven UI](#configuration-driven-ui) pattern.
+
+Lets now add the resource to CloudMunch. 
+
+- Download the contents of the folder [resource_googlesheets_v1](examples/resource_googlesheets_v1) to the folder "custom/resources" inside the CloudMunch installation folder.
+
+- Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
+
+- Once the services are up, you can verify if the resource has been added by invoking the API `/definitions/resource_types/googlesheets`.
+
+![curl verification](screenshots/resource_googlesheets_v1/curl_verification.png)
+
+- You should also now see the resource in the UI
+
+![resource in ui](screenshots/resource_googlesheets_v1/resource_verification.gif)
+
+Before we can add this resource, we'll need an Integration. Lets add one next.
 
 ## Integrations
 Integrations are essentially references to third-party systems (Ex: Google, Jira, Sonarqube). An integration instance containing your crendentials can be added to an application. Later, plugins added to a task use these credentials to fetch information from (or make changes to) these systems.
@@ -133,8 +145,7 @@ Adding an integration into CloudMunch involves adding a single definition file. 
 }
 ```
 
-**NOTE**
-- Ensure the folder name and the value of the node `id` in the file match
+**NOTE** Ensure the folder name and the value of the node `id` in the file match
 
 The JSON file above is the definition of the integration. The fields `id`, `label`, `type` (`id`=`type`), `display`, `status` and `description` are self-explanatory so lets look at `registrationFields`. 
 
@@ -144,21 +155,29 @@ This node tells CloudMunch what fields to display when someone is adding an inst
 
 Lets now add the integration to CloudMunch. 
 
-- Download the contents of the folder [integration_googlesheets_v1](examples/integration_googlesheets_v1) to the folder "integrations" inside the CloudMunch installation folder. The folder structure should now look like this:
-
-![Folder structure](screenshots/integration_googlesheets_v1/folder_structure.png)
+- Download the contents of the folder [integration_googlesheets_v1](examples/integration_googlesheets_v1) to the folder "custom/integrations" inside the CloudMunch installation folder.
 
 - Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
 
-- Once the services are up, you can verify if the Integration has been added by invoking the API below. (*Remember to replace the IP address with your own and to use a valid `apikey`*)
+- Once the services are up, you can verify if the Integration has been added by invoking the API `api/definitions/integrations/googlesheets`.
 
-```bash
-curl http://192.168.99.100:8000/api/definitions/integrations/googlesheets?apikey=<apikey>
-```
+![curl verification](screenshots/integration_googlesheets_v1/curl_verification.png)
 
-![curl verification](screenshots/integration_googlesheets_v1/integration_curl_verification.png)
+The response is a JSON and the definition you added is under the node `data`. This tells us that the Integration is now in the System.
 
-The response is a JSON and the definition you added is under the node `data`. This tells us that the Integration is now in the System. How about the UI though? 
+##### Integration Logos
+
+You can also add your own logo to an integration. Just name the file: `logo.png` and put it under `images`. When CloudMunch is rebuilt, the image will be copied as the logo of the integration.
+
+Cool! Now we have a resource and its integration. Go to the application, click on "Add Insights", choose the resource "Google Sheets" and click "Next". There's the Integration we added. Change the name if necessary and click on "Next". 
+
+![Oauth issue](screenshots/integration_googlesheets_v1/resource_wizard.png) 
+
+We've hit a snag. This Wizard (which at the moment is the only way you can do this exercise) doesn't know how to interact with the integration. To get past this, we need an Interface. Lets add one next.
+
+## Interface
+
+
 
 ## Plugins
 Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of files and then use docker-compose to rebuild CloudMunch services
@@ -166,9 +185,7 @@ Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of f
 ### Hello World Plugin v1
 Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. 
 
-- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "plugins" inside the CloudMunch installation folder. The folder structure should now look like this:
-
-![Folder structure](screenshots/hello-world-plugin-v1/folder_structure.png)
+- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "custom/plugins" inside the CloudMunch installation folder.
 
 - Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
 
@@ -214,7 +231,6 @@ These other files are necessary based on the language your plugin will be writte
 
 Did you notice that the plugin logo in the Hello World example was the CloudMunch logo? You can also add your own logo to a plugin. Just name the file: `logo.png` and put it under `images` (parallel to `src`). When CloudMunch is rebuilt, the image will be copied as the logo of the plugin.
 
-
 ## Configuration Driven UI
 
 CloudMunch's UI easily supports configuring third-party tools and integrations. We do this by implementing a pattern we call "Configuration Driven UI". You, the developer of the third-party tool tell us what we should show on screen through a simple configuration in JSON . Our framework supports all standard html input data types. The table below demonstrates how UI changes based on content in the JSON. 
@@ -227,3 +243,17 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 |![plugin.json file](screenshots/hello-world-plugin-v1/dropdown_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png)|
 
 The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. 
+
+## Rebuild Services
+Several times in this tutorial you'll need to rebuild CloudMunch containers. To do this, execute the commands below from within CloudMunch installation folder.
+
+```bash
+docker-compose down;docker-compose build;docker-compose up -d
+```
+
+![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
+
+## CloudMunch API
+-
+- Remember to replace the IP address with your own and to pass a valid `apikey`
+- You can generate an API key from within the application

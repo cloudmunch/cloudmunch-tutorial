@@ -5,7 +5,7 @@
   "integration": "googlesheets",
   "label": "Google Sheets",
   "component": "Google Sheets Resource",
-  "category": [],
+  "category": [ "Tutorial" ],
   "description": "Choose if you'd like insights about your Google Sheets profiles",
   "fields": {
     "name": {
