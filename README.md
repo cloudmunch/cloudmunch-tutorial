@@ -255,7 +255,9 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 |![plugin.json file](screenshots/hello-world-plugin-v1/radioButton_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_radioButton.png)|
 |![plugin.json file](screenshots/hello-world-plugin-v1/dropdown_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png)|
 
-The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. 
+The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to `/dashboard/developer` to see all the functionality supported.
+
+![Developer screen](screenshots/cm-operations/developer-screen.png)
 
 ## Rebuild Services
 Several times in this tutorial you'll need to rebuild CloudMunch containers. To do this, execute the commands below from within CloudMunch installation folder.
