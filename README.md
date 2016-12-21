@@ -181,8 +181,16 @@ Cool! Now we have a resource and its integration. Go to the application, click o
 We've hit a snag. This Wizard (which at the moment is the only way you can do this exercise) sees that you've configured the integration as needing OAuth. It calls the action `authorize` on the integration but this action is not defined anywhere. Lets add an interface to fix this problem.
 
 ## Interface
-An interface is simply configuration that tells CloudMunch what actions are possible on an Integration. As in earlier cases, it is essentially just a JSON file. 
+An interface is simply configuration that tells CloudMunch what actions are possible on an Integration. 
 
+### Interface Definition file
+As in earlier cases, it is essentially just a JSON file. Before we look at the JSON, here is some food-for-thought.
+
+| | |
+|---|---|
+|![Google OAuth 2](screenshots/interface_googlesheets_v1/OAuthFlow.png)| Google's OAuth is **not** a single step process. It involves multiple calls to the API where we first authenticate the client, get user authorization, get a code and then use code to get an Access Token. This Access token is what is used in subsequent requests to the API. |
+
+This means the interface file has to be capable of not just defining what actions are possible on an Integration but also **chaining** those actions automatically. Lets look the contents of an actual definition
 
 ## Plugins
 Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of files and then use docker-compose to rebuild CloudMunch services
