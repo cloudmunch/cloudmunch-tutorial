@@ -4,21 +4,24 @@
 This document will help you learn how to add your own custom functionality to CloudMunch through a step-by-step process. 
 
 ## Intended audience
-A developer who wants to install CloudMunch locally, try it out and extend it with his own functionality
+A developer who has installed CloudMunch locally and now wants to extend it with his (or her) own functionality
 
 ## Pre-requisites
  - Basic working knowledge of Docker
 
 ## Table of Contents
- - [Install CloudMunch Locally](#install-cloudmunch-locally)
+ - [Aim](#our-aim)
+ - [Resources](#resources)
+ - [Integrations](#integrations)
+ - [Interfaces](#interfaces)
  - [Plugins](#plugins)
  	- [Hello World Plugin v1](#hello-world-plugin-v1)
 
-## Install CloudMunch Locally
-
 
 ## Our Aim
-By the end of this exercise our aim is to fetch data from a google spreadsheet and display some insight in an application. To achieve our aim, we'll need to configure a task to retrieve data from a
+By the end of this exercise our aim is to fetch data from a google spreadsheet and display some insight in an application. 
+
+To achieve our aim, we'll need to configure a task to retrieve data from a
 
 - Source
 - (in a) Third-party System 
@@ -31,7 +34,7 @@ Or in "CloudMunch" language, we'll be configuring a `Task` which will contain a 
 - (which we'll use to write into a) Report and Card
 
 ## Resources
-A resource is essentially a data-store or source from which we fetch information. To add a resource into CloudMunch, we simply need to add its definition file.
+A resource is essentially a source from which we fetch information. To add a resource into CloudMunch, we simply need to add its definition file.
 
 ### Resource Definition
 
@@ -81,9 +84,11 @@ The JSON file above is the definition of the integration. The fields `id`, `labe
 
 - component: This node is similar to `label`. When adding a resource, the end user may encounter some errors. Those errors will refer to this resource using the value in this node in their text.
 
-- category: This node tells CloudMunch what category the resource belongs into. Remember this screen? It is displayed when choosing resources. The category you enter will mostly be one of the existing ones from this screen. If you add a new one, the resource will still be displayed, but in that category. But remember to add one: resources without categories are not displayed in the UI.
+- category: This node tells CloudMunch what category the resource belongs into. 
 
-![Resource category](screenshots/resource_googlesheets_v1/resource_categorization.png)
+| | |
+|---|---|
+| Remember this screen? It is displayed when choosing resources. Note that they are organized by Categories (on the extreme left)<br/>The category you enter will mostly be one of the existing ones from this screen. <br/>If you add a new one, the resource will still be displayed, but in the new category you've entered. <br/>Remember to add at least one, resources without categories are not displayed in the UI. |![Resource category](screenshots/resource_googlesheets_v1/resource_categorization.png)|
 
 - fields: This node tells CloudMunch what fields to display when someone is adding this resource into their application. Here, since we are adding a Google Sheets resource, we need the user to enter a name for the resource, the Sheet ID and the Range. The node follows CloudMunch's [Configuration Driven UI](#configuration-driven-ui) pattern.
 
@@ -101,10 +106,10 @@ Lets now add the resource to CloudMunch.
 
 ![resource in ui](screenshots/resource_googlesheets_v1/resource_verification.gif)
 
-Before we can add this resource, we'll need an Integration. Lets add one next.
+A resource is only available within an integration. So before we can add this resource, we'll need an Integration. Lets add one next.
 
 ## Integrations
-Integrations are essentially references to third-party systems (Ex: Google, Jira, Sonarqube). An integration instance containing your crendentials can be added to an application. Later, plugins added to a task use these credentials to fetch information from (or make changes to) these systems.
+Integrations are essentially references to third-party systems (Ex: Google, Jira, Sonarqube). An integration instance containing your credentials can be added to an application. Later, plugins added to a task will use these credentials to fetch information from these systems.
 
 Adding an integration into CloudMunch involves adding a single definition file. Lets add one to represent Google Sheets.
 
@@ -171,12 +176,12 @@ You can also add your own logo to an integration. Just name the file: `logo.png`
 
 Cool! Now we have a resource and its integration. Go to the application, click on "Add Insights", choose the resource "Google Sheets" and click "Next". There's the Integration we added. Change the name if necessary and click on "Next". 
 
-![Oauth issue](screenshots/integration_googlesheets_v1/resource_wizard.png) 
+![Oauth issue](screenshots/resource_googlesheets_v1/resource_wizard.gif) 
 
-We've hit a snag. This Wizard (which at the moment is the only way you can do this exercise) doesn't know how to interact with the integration. To get past this, we need an Interface. Lets add one next.
+We've hit a snag. This Wizard (which at the moment is the only way you can do this exercise) sees that you've configured the integration as needing OAuth. It calls the action `authorize` on the integration but this action is not defined anywhere. Lets add an interface to fix this problem.
 
 ## Interface
-
+An interface is simply configuration that tells CloudMunch what actions are possible on an Integration. As in earlier cases, it is essentially just a JSON file. 
 
 
 ## Plugins
@@ -254,6 +259,5 @@ docker-compose down;docker-compose build;docker-compose up -d
 ![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
 
 ## CloudMunch API
--
 - Remember to replace the IP address with your own and to pass a valid `apikey`
 - You can generate an API key from within the application
