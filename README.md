@@ -4,7 +4,7 @@
 This document will help you learn how to add your own custom functionality to CloudMunch through a step-by-step process. 
 
 ## Intended audience
-A developer who has installed CloudMunch locally and now wants to extend it with his (or her) own functionality
+A developer who has [installed CloudMunch locally](https://github.com/cloudmunch/Install) and now wants to extend it with his (or her) own functionality
 
 ## Pre-requisites
  - Basic working knowledge of Docker
