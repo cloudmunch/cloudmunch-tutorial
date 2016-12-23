@@ -12,15 +12,15 @@
   "execute": {
     "options": "-debug",
     "language": "PHP",
-    "main": "googlesheets/src/HelloWorld.class.php"
+    "main": "googlesheets/src/GoogleSheet.class.php"
   },
   "inputs": {
     "phrase": {
-      "type": "text",
-      "label": "Phrase",
+      "type": "dummy_input_not_used",
+      "label": "Ignore",
       "mandatory": false,
       "display": "yes",
-      "defaultValue": "World"
+      "defaultValue": "Dummy input. Not used"
     }
   },
   "outputs": {}

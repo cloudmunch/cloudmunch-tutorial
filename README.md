@@ -11,11 +11,10 @@ A developer who has [installed CloudMunch locally](https://github.com/cloudmunch
 
 ## Table of Contents
  - [Aim](#our-aim)
+ - [Plugins](#plugins)
  - [Resources](#resources)
  - [Integrations](#integrations)
  - [Interfaces](#interfaces)
- - [Plugins](#plugins)
- 	- [Hello World Plugin v1](#hello-world-plugin-v1)
 
 
 ## Our Aim
@@ -32,6 +31,118 @@ Or in "CloudMunch" language, we'll be configuring a `Task` which will contain a 
 - Resource
 - (in an) Integration
 - (which we'll use to write into a) Report and Card
+
+From the end-user's perspective, Insights in CloudMunch are grouped under Resources
+  - A Resource is added to an application through the many wizards available
+  - Each Resource is associated with an third-party system (an Integration) - so the wizard prompts the user to add the integration for a resource
+  - Once a Resource has been added and configured with inputs, the wizard triggers an Insight Task
+  - This task contains several plugins. Each plugin is associated with one type of resource and it
+      - Gets the list of resources for that type. And for each resource
+          - Gets the corresponding integration
+          - Access the integration through its interface
+          - Fetches the resource data
+          - Transforms and stores the data into the Resource's Datastore as Extracts ( NOTE: This is optional and is done to allow for optimizations & incremental fetches in the future)
+          - Transforms and stores the data as a report (which are later rendered in the UI as cards)
+          - Collects key metrics from the data and displays them as highlights (Optional)
+
+## Plugins
+Plugins are are CloudMunch's workhorses: how stuff get done. Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. 
+
+### Hello World Plugin v1
+
+- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "custom/plugins" inside the CloudMunch installation folder.
+
+- Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
+
+- Once the services are up, you can verify if the plugin has been added by invoking the API `api/plugins/hello_world`.
+
+![curl verification](screenshots/hello-world-plugin-v1/curl_verification.png)
+
+- Once CloudMunch is up, create a new task and try to add this plugin to the task. 
+
+![Add the plugin](screenshots/cm-operations/add-plugin.gif)
+
+**Troubleshooting** If you don't see the plugin in the list, it may be because the JSON is not well formed or because of caching. Verify the JSON and clear cache http://&lt;your_host&gt;:8000/api/reset
+
+- Modify the step, add the phrase you want to see, run the task and check the logs. You should see the phrase you entered in the logs. 
+
+![Modify and run the task](screenshots/hello-world-plugin-v1/edit_and_run_task.gif)
+
+*(Run the task with different inputs to verify that the phrase you enter is what is displayed in the logs)*
+
+#### Plugin files
+Lets understand the files necessary for a plugin. Open up the [hello-world-plugin-v1](examples/plugin_hello_world_v1/hello_world) folder. Here you will find several files. Lets delve into a bit more detail of the file: plugin.json
+
+##### Plugin Definition File (plugin.json)
+
+|Definition| UI|
+|---|---|
+|![plugin definition file](screenshots/hello-world-plugin-v1/plugin_json.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_plugin_tab.png)|
+
+This file contains meta-data about the plugin you are adding and is used by us to display the plugin and when configuring it's inputs. It is independent of the language your plugin will eventually be in. 
+
+The nodes: `_created_by`, `name`, `description`, `author`, `id`, `version` and `tags` nodes are pretty self-explanatory aren't they? So lets discuss `status`, `execute`, `inputs` & `outputs`.
+
+- `status`: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than `enabled` are ignored and will not be available for use within the system.
+- `execute`: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are `PHP`, `Java` and `Ruby`
+- `inputs`: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes `mandatory (true/false)`, `display (yes/no)` and `label` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the [Configuration Driven UI](#configuration-driven-ui) pattern you are already familiar with.
+- `outputs`: The contents of this node tell us what variables are put into the task after the plugin has completed execution. The values of these variables can then be used to influence subsequent steps.
+
+Lets look at the other files necessary to add a plugin. In our example we have
+
+- src/&lt;Name&gt;.class.php: Actual logic necessary to perform the plugin's task.
+- composer.json: Composer file. Used to install the plugin and any of its dependencies
+- install.sh: Installs your plugin. You will typically never need to modify this file and can copy it from any other existing plugin
+
+These other files are necessary based on the language your plugin will be written in. We are using [PHP](https://github.com/cloudmunch/CloudMunch-php-SDK-V2/blob/master/README.md) in this example but plugins can also be written in [Ruby](https://github.com/cloudmunch/cloudmunch-Ruby-SDK/blob/master/README.md) and [Java](https://github.com/cloudmunch/CloudMunch-SDK-Java/blob/master/README.md). Do read the respective ReadMe.md files for detailed information on the syntax.
+
+### Plugin Logos
+
+Did you notice that the plugin logo in the Hello World example was the CloudMunch logo? You can also add your own logo to a plugin. Just name the file: `logo.png` and put it under `images` (parallel to `src`). When CloudMunch is rebuilt, the image will be copied as the logo of the plugin.
+
+## Stubbed Plugin
+Before we plugin all the parts necessary for an end-user to add resources and see insights, lets start with a stubbed plugin which skips all of the user interactions, fetches and just shows us the end result.
+
+- [Create](#quick-application-creation) an application without any resources, integrations or tasks
+- Copy the application's ID (referred to below as `application_id`)
+- Create a resource in your application by invoking the API `/api/applications/<application_id>/resources`. The data we'll send to create a resource is below. Replace the application_id with the correct value. The application_name is a reference and can remain as-is.
+
+```json
+{
+  "type": "googlesheets",
+  "name": "googlesheets",
+  "created_date": "2016-12-20 06:56:11.73265",
+  "created_by": "vivek@cloudmunch.com",
+  "updated_by": "vivek@cloudmunch.com",
+  "updated_date": "2016-12-20 06:56:11.73265",
+  "application_id": "APP2016122308383772923",
+  "application_name": "{$applications->name}"
+}
+```
+
+```bash
+$ curl --data 'data={"type":"googlesheets","name":"googlesheets","created_date":"2016-12-20 06:56:11.73265","created_by":"vivek@cloudmunch.com","updated_by":"vivek@cloudmunch.com","updated_date":"2016-12-20 06:56:11.73265","application_id":"APP2016122308383772923","application_name":"{$applications->name}"}' http://192.168.99.100:8000/api/applications/APP2016122308383772923/resources?apikey=ceb01fa31b53c14cd04b542c50459cceb62eb43ab883190a33a39a5111ba24ded5c39426b362039ac72abaf31f3c5eac246a538e76d36b328be066248a066361
+{"data":{"type":"googlesheets","name":"googlesheets","created_date":"2016-12-23 08:58:40.23489","created_by":"vivek@cloudmunch.com","updated_by":"vivek@cloudmunch.com","updated_date":"2016-12-23 08:58:40.23489","application_id":"APP2016122308383772923","application_name":"CMforDummies","id":"RES2016122308584024026"},"request":{"request_id":"R2016122308583994943","response_time":"0.39 seconds","status":"SUCCESS"}}
+```
+
+- Notice the `"id":"RES2016122308584024026"` in the response? This is the ID allocated to your resource. We'll use it in the stubbed plugin
+- Go to the file [GoogleSheet.class.php](examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php) and edit the line `$resourceID = "RES2016122308584024026";`and replace the actual resource ID as the value.
+
+- Download the contents of the folder [plugin_googlesheets_v1](examples/plugin_googlesheets_v1) to the folder "custom/plugins" inside the CloudMunch installation folder.
+
+- Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
+
+- Once the services are up, you can verify if the plugin has been added by invoking the API `api/plugins/googlesheets`.
+
+- Add a new task. Add the plugin, execute the task and once it completes, check the dashboard. You should see the following cards and key metrics:
+
+![Card](screenshots/plugin_googlesheets_v1/insight_dashboard.png)
+
+- Our (rather sombre) Insights are ready. The work is done by [GoogleSheet.class.php](examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php) in the `process` method. Rather than explain what is occurring, I've added inline comments you can read with the code. For more information on the utilities used, please refer to the [SDK documentation](https://github.com/cloudmunch/CloudMunch-php-SDK-V2)
+
+![Plugin code](screenshots/plugin_googlesheets_v1/plugin_code.png)
+
+Done! But that was a stubbed plugin and a mock Resource. So you know what the output will look like. Lets now create an actual resource that the end-user can see and configure.
 
 ## Resources
 A resource is essentially a source from which we fetch information. To add a resource into CloudMunch, we simply need to add its definition file.
@@ -412,62 +523,11 @@ Lets now add the interface to CloudMunch.
 
 - Once the services are up, you can verify if the interface has been added by invoking the API `api/interfaces/googlesheets`.
 
+## Quick Application Creation
 
-## Plugins
-Plugins are are CloudMunch's workhorses: how tasks get done. So it follows that a plugin is where you'll actually add code. So far adding custom content to CloudMunch has involved creating a definition JSON file and then rebuilding services. Here too, we'll follow the same pattern but in addition to specifying a definition, you'll also need to add code to actually do something.
+For our needs, we don't really need a fully setup application. Begin the wizard for application creation and exit immediately after the application is created. The ID of the application will be in the browser address bar.
 
-### Hello World Plugin v1
-Lets start with the simplest plugin possible: one that simply logs "Hello world" into the log and exits. 
-
-- Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "custom/plugins" inside the CloudMunch installation folder.
-
-- Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
-
-- Once the services are up, you can verify if the plugin has been added by invoking the API `api/plugins/hello_world`.
-
-![curl verification](screenshots/hello-world-plugin-v1/curl_verification.png)
-
-- Once CloudMunch is up, create a new task and try to add this plugin to the task. 
-
-![Add the plugin](screenshots/cm-operations/add-plugin.gif)
-
-**Troubleshooting** If you don't see the plugin in the list, it may be because the JSON is not well formed or because of caching. Verify the JSON and clear cache http://&lt;your_host&gt;:8000/api/reset
-
-- Modify the step, add the phrase you want to see, run the task and check the logs. You should see the phrase you entered in the logs. 
-
-![Modify and run the task](screenshots/hello-world-plugin-v1/edit_and_run_task.gif)
-
-*(Run the task with different inputs to verify that the phrase you enter is what is displayed in the logs)*
-
-#### Plugin files
-Lets understand the files necessary for a plugin. Open up the [hello-world-plugin-v1](examples/plugin_hello_world_v1/hello_world) folder. Here you will find several files. Lets delve into a bit more detail of the file: plugin.json
-
-##### Plugin Definition File (plugin.json)
-
-|Definition| UI|
-|---|---|
-|![plugin definition file](screenshots/hello-world-plugin-v1/plugin_json.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_plugin_tab.png)|
-
-This file contains meta-data about the plugin you are adding and is used by us to display the plugin and when configuring it's inputs. It is independent of the language your plugin will eventually be in. 
-
-The nodes: `_created_by`, `name`, `description`, `author`, `id`, `version` and `tags` nodes are pretty self-explanatory aren't they? So lets discuss `status`, `execute`, `inputs` & `outputs`.
-
-- `status`: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than `enabled` are ignored and will not be available for use within the system.
-- `execute`: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are `PHP`, `Java` and `Ruby`
-- `inputs`: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes `mandatory (true/false)`, `display (yes/no)` and `label` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the [Configuration Driven UI](#configuration-driven-ui) pattern you are already familiar with.
-- `outputs`: The contents of this node tell us what variables are put into the task after the plugin has completed execution. The values of these variables can then be used to influence subsequent steps.
-
-Lets look at the other files necessary to add a plugin. In our example we have
-
-- src/&lt;Name&gt;.class.php: Actual logic necessary to perform the plugin's task.
-- composer.json: Composer file. Used to install the plugin and any of its dependencies
-- install.sh: Installs your plugin. You will typically never need to modify this file and can copy it from any other existing plugin
-
-These other files are necessary based on the language your plugin will be written in. We are using [PHP](https://github.com/cloudmunch/CloudMunch-php-SDK-V2/blob/master/README.md) in this example but plugins can also be written in [Ruby](https://github.com/cloudmunch/cloudmunch-Ruby-SDK/blob/master/README.md) and [Java](https://github.com/cloudmunch/CloudMunch-SDK-Java/blob/master/README.md). Do read the respective ReadMe.md files for detailed information on the syntax.
-
-##### Plugin Logos
-
-Did you notice that the plugin logo in the Hello World example was the CloudMunch logo? You can also add your own logo to a plugin. Just name the file: `logo.png` and put it under `images` (parallel to `src`). When CloudMunch is rebuilt, the image will be copied as the logo of the plugin.
+![Quick application creation](/Users/vivekkodira/cloudmunch/cloudmunch-tutorial/screenshots/cm-operations/quickApplicationCreation.gif)
 
 ## Configuration Driven UI
 

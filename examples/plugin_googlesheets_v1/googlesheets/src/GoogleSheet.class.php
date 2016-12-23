@@ -11,31 +11,30 @@
 	class GoogleSheet extends AppAbstract {
 		public function __construct() {}//optional constructor
 
-		private function putIntoDataStore( $response ) {
-			$this->getLogHandler()->log( INFO, "Storing into datastore" );
-		}
-
 		//Only method you *need* to implement
 		public function process ( $processParameters ) {
-			$resourceID = "RES1234";
+			//Hardcoded resource ID
+			$resourceID = "RES2016122310033146132";
+			//A title for the card
 			$source= "Tutorial";
-			$sourceURL = "Some excel path";
-			//appInput will now contain all the plugin's runtime variables
+			//Will display as a link in the card. User can click to go to the original source
+			$sourceURL = "http://www.cloudmunch.com";
+			//appInput will contain all the plugin's runtime variables
 			$appInput = $processParameters['appInput'];
-			//Send some content to be put into the logs
+			//Log Handler to log progress and debug
 			$this->getLogHandler()->log( INFO, "Beginning process" );
-
+			//Get the utility necessary to create the report and key metrics
 			$this->cmInsightsHelper = $this->getCloudmunchInsightHelper();
-			$resources = $this->cmInsightsHelper->getResources('googlesheets');
-			if (is_array($resources) && count($resources) > 0) {
-				$data = '[{"Lanisters":{"alive":4,"dead":1}},{"Stark":{"alive":4,"dead":4}}]';
-				//create data
-				$transformedData = json_decode('{"alive(4)":4,"dead(1)":1}', true);
-				$transformedData["label"]="Lannisters";//chart label
-				$reportID = $this->cmInsightsHelper->createDoughnutGraph($resourceID, $transformedData, "LannisterReport", "Lanniter Report", "Tutorial", "Death toll", $source, $sourceURL, json_decode('["alive(4)","dead(1)"]') );
-				$subtext="Number of ppl dead";
-				$this->cmInsightsHelper->addKeyMetrics( $resourceID, $reportID, "Death Toll", 75, "percentage", $source, $sourceURL, $subtext )
-			}
+			//Get the data (in the actual plugin, you'll do a lot more processing here)			
+			$data = '[{"Lanisters":{"alive":4,"dead":1}},{"Stark":{"alive":4,"dead":4}}]';
+			//Transform the data into the format the card expects. In this case you are creating a pie chart.
+			$transformedData = json_decode('{"alive(4)":4,"dead(1)":1}', true);
+			//Add a label for the chart
+			$transformedData["label"]="Lannisters";//chart label
+			//Create the card
+			$reportID = $this->cmInsightsHelper->createDoughnutGraph($resourceID, $transformedData, "LannisterReport", "Lannister Report", "Tutorial", "Death toll", $source, $sourceURL, json_decode('["alive(4)","dead(1)"]') );
+			//Create Key metrics card (Optional)
+			$this->cmInsightsHelper->addKeyMetric( $resourceID, $reportID, "death_toll", "Death Toll", 75, "percentage", $source, $sourceURL, "Number GRRM killed" );
 		}
 	}
 
