@@ -120,6 +120,8 @@ Before we do everything necessary for an end-user to add resources and see insig
 }
 ```
 
+- Example invocation and response:
+
 ```bash
 $ curl --data 'data={"type":"googlesheets","name":"googlesheets","created_date":"2016-12-20 06:56:11.73265","created_by":"vivek@cloudmunch.com","updated_by":"vivek@cloudmunch.com","updated_date":"2016-12-20 06:56:11.73265","application_id":"APP2016122308383772923","application_name":"{$applications->name}"}' http://192.168.99.100:8000/api/applications/APP2016122308383772923/resources?apikey=ceb01fa31b53c14cd04b542c50459cceb62eb43ab883190a33a39a5111ba24ded5c39426b362039ac72abaf31f3c5eac246a538e76d36b328be066248a066361
 {"data":{"type":"googlesheets","name":"googlesheets","created_date":"2016-12-23 08:58:40.23489","created_by":"vivek@cloudmunch.com","updated_by":"vivek@cloudmunch.com","updated_date":"2016-12-23 08:58:40.23489","application_id":"APP2016122308383772923","application_name":"CMforDummies","id":"RES2016122308584024026"},"request":{"request_id":"R2016122308583994943","response_time":"0.39 seconds","status":"SUCCESS"}}
