@@ -1,0 +1,27 @@
+{
+  "_created_by": "vivek@cloudmunch.com",
+  "documentation": {
+    "description": "Plugin to fetch data from Google sheets"
+  },
+  "author": "Vivek Kodira",
+  "id": "googlesheets",
+  "name": "Google Sheets",
+  "tags": [],
+  "version": "1",
+  "status": "enabled",
+  "execute": {
+    "options": "-debug",
+    "language": "PHP",
+    "main": "googlesheets/src/HelloWorld.class.php"
+  },
+  "inputs": {
+    "phrase": {
+      "type": "text",
+      "label": "Phrase",
+      "mandatory": false,
+      "display": "yes",
+      "defaultValue": "World"
+    }
+  },
+  "outputs": {}
+}
