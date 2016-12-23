@@ -188,9 +188,211 @@ As in earlier cases, it is essentially just a JSON file. Before we look at the J
 
 | | |
 |---|---|
-|![Google OAuth 2](screenshots/interface_googlesheets_v1/OAuthFlow.png)| Google's OAuth is **not** a single step process. It involves multiple calls to the API where we first authenticate the client, get user authorization, get a code and then use code to get an Access Token. This Access token is what is used in subsequent requests to the API. |
+|![Google OAuth 2](screenshots/interface_googlesheets_v1/OAuthFlow.png)<br/>[ Source: Google OAuth overview](https://developers.google.com/identity/protocols/OAuth2)| Google's OAuth is **not** a single step process. It involves multiple calls to the API where we first authenticate the client, get user authorization, get a code and then use code to get an Access Token. This Access token is what is used in subsequent requests to the API. <br/><br/>This means the interface file has to be capable of not just defining what actions are possible on an Integration but also **chaining** those actions automatically. |
 
-This means the interface file has to be capable of not just defining what actions are possible on an Integration but also **chaining** those actions automatically. Lets look the contents of an actual definition
+Lets look the contents of an actual definition
+
+```json
+{
+    "id": "googlesheets",
+    "name": "googlesheets",
+    "description": "Interface file for communicating with googlesheets",
+    "configuration": {
+        "call_type": "http",
+        "base_url": "https://accounts.google.com",
+        "headers": [],
+        "authentication": {
+            "type": "oauth",
+            "client_id": "",
+            "client_secret": ""
+        }
+    },
+    "map": {
+        "email": "{username}"
+    },
+    "response": [
+        {
+            "message": "",
+            "condition": "==",
+            "result": "",
+            "error": "NO"
+        }
+    ],
+    "actions": {
+        "authorize": {
+            "path": "/o/oauth2/v2/auth",
+            "method": "REDIRECT",
+            "input": {
+                "response_type": "code",
+                "client_id": "{configuration->authentication->client_id}",
+                "scope": "https://www.googleapis.com/auth/spreadsheets.readonly",
+                "state": "{state}",
+                "access_type": "offline",
+                "prompt": "select_account",
+                "redirect_uri": "{callback_url}"
+            },
+            "output": {
+                "code": "{code}"
+            },
+            "condition": "{configuration->authentication->access_token|null} = null",
+            "parameters": {
+                "callback_url": "https://dev.cloudmunch.com:543/api/",
+                "state": {
+                    "action": "access_token",
+                    "request_id": "{request_id}",
+                    "apikey": "{apikey}",
+                    "url": "{url}",
+                    "from": "{from}",
+                    "option": "{option}",
+                    "caller": "{caller)",
+                    "method": "POST",
+                    "domain": "{domain}",
+                    "application_id": "{application_id}",
+                    "integration_id": "{integration_id}",
+                    "username": "{username}",
+                    "referer_url": "{referer_url}"
+                }
+            },
+            "next_action": {
+                "mode": "AUTOMATIC",
+                "action": "access_token"
+            }
+        },
+        "access_token": {
+            "path": "/o/oauth2/token",
+            "method": "POST",
+            "input": "code={code}&client_id={configuration->authentication->client_id}&client_secret={configuration->authentication->client_secret}&grant_type=authorization_code&redirect_uri={callback_url}",
+            "output": {
+                "access_token": "access_token",
+                "expires_in": "expires_in",
+                "token_type": "token_type",
+                "refresh_token": "refresh_token"
+            },
+            "condition": "{configuration->authentication->access_token|null} = null",
+            "parameters": {
+                "callback_url": "{cloudmunch_api_url}",
+                "state": {
+                    "action": "update_integration",
+                    "request_id": "{request_id}",
+                    "apikey": "{apikey}",
+                    "url": "{url}",
+                    "from": "{from}",
+                    "method": "POST",
+                    "option": "{option}",
+                    "caller": "{caller)",
+                    "application_id": "{application_id}",
+                    "integration_id": "{integration_id}",
+                    "username": "{username}",
+                    "domain": "{domain}",
+                    "referer_url": "{referer_url}",
+                    "offset": "{offset}",
+                    "count": "{count}"
+                },
+                "code": "{code}"
+            },
+            "next_action": {
+                "mode": "AUTOMATIC",
+                "action": "update_userdata"
+            }
+        },
+        "update_userdata": {
+            "method": "PATCH",
+            "context": "userdata",
+            "application_id": "{application_id}",
+            "integration_id": "{integration_id}",
+            "condition": "{refresh_token|null} != null",
+            "data": [
+                {
+                    "op": "add",
+                    "path": "/configuration",
+                    "value": {
+                        "googlesheets": {
+                            "refresh_token": "{refresh_token|null}"
+                        }
+                    }
+                }
+            ],
+            "next_action": {
+                "mode": "AUTOMATIC",
+                "action": "update_integration_access_token",
+                "parameters": {
+                    "refresh_token": "{refresh_token|null}",
+                    "access_token": "{access_token|null}"
+                }
+            }
+        },
+        "update_integration_access_token": {
+            "method": "PATCH",
+            "context": "integrations",
+            "condition": "{access_token|null} != null",
+            "application_id": "{application_id}",
+            "integration_id": "{integration_id}",
+            "data": [
+                {
+                    "op": "add",
+                    "path": "/configuration",
+                    "value": {
+                        "authentication": {
+                            "access_token": "{access_token}",
+                            "authorize_time": "{$time}"
+                        }
+                    }
+                }
+            ],
+            "next_action": {
+                "mode": "AUTOMATIC",
+                "action": "update_integration_refresh_token",
+                "parameters": {
+                    "refresh_token": "{$userdata/{updated_by}->configuration->googlesheets->refresh_token}",
+                    "access_token": "{access_token|null}"
+                }
+            }
+        },
+        "update_integration_refresh_token": {
+            "method": "PATCH",
+            "context": "integrations",
+            "condition": "{refresh_token|null} != null",
+            "application_id": "{application_id}",
+            "integration_id": "{integration_id}",
+            "data": [
+                {
+                    "op": "add",
+                    "path": "/configuration",
+                    "value": {
+                        "authentication": {
+                            "refresh_token": "{refresh_token}"
+                        }
+                    }
+                }
+            ],
+            "response": {
+                "method": "REDIRECT",
+                "url": "{referer_url}",
+                "data": {
+                    "state": {
+                        "application_id": "{application_id}",
+                        "integration_id": "{integration_id}",
+                        "username": "{username}",
+                        "domain": "{domain}",
+                        "action": "list_accounts"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+
+
+Lets now add the interface to CloudMunch. 
+
+- Download the contents of the folder [interface_googlesheets_v1](examples/interface_googlesheets_v1) to the folder "custom/interfaces" inside the CloudMunch installation folder.
+
+- Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
+
+- Once the services are up, you can verify if the interface has been added by invoking the API `api/interfaces/googlesheets`.
+
 
 ## Plugins
 Adding a plugin to CloudMunch is easy! All you need to do is create a bunch of files and then use docker-compose to rebuild CloudMunch services
@@ -201,6 +403,10 @@ Lets start with the simplest plugin possible: one that simply logs "Hello world"
 - Download the contents of the folder [hello-world-plugin-v1](examples/plugin_hello_world_v1) to the folder "custom/plugins" inside the CloudMunch installation folder.
 
 - Switch to the command prompt, navigate to the CloudMunch installation folder and [rebuild CloudMunch](#rebuild-services)
+
+- Once the services are up, you can verify if the plugin has been added by invoking the API `api/plugins/hello_world`.
+
+![curl verification](screenshots/hello-world-plugin-v1/curl_verification.png)
 
 - Once CloudMunch is up, create a new task and try to add this plugin to the task. 
 
@@ -246,7 +452,7 @@ Did you notice that the plugin logo in the Hello World example was the CloudMunc
 
 ## Configuration Driven UI
 
-CloudMunch's UI easily supports configuring third-party tools and integrations. We do this by implementing a pattern we call "Configuration Driven UI". You, the developer of the third-party tool tell us what we should show on screen through a simple configuration in JSON . Our framework supports all standard html input data types. The table below demonstrates how UI changes based on content in the JSON. 
+CloudMunch's UI easily supports configuring third-party tools and integrations. We do this by implementing a pattern we call "Configuration Driven UI". You, the developer of the third-party tool, tell us what we should show on screen through a simple JSON. Our framework parses the JSON and renders your configuration as HTML. The table below demonstrates how UI changes based on content in the JSON. 
 
 |Definition| UI|
 |---|---|
@@ -255,16 +461,25 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 |![plugin.json file](screenshots/hello-world-plugin-v1/radioButton_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_radioButton.png)|
 |![plugin.json file](screenshots/hello-world-plugin-v1/dropdown_input.png)|![How it looks in the UI](screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png)|
 
-The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to `/dashboard/developer` to see all the functionality supported.
+The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to `/dashboard/developer` to see actual examples of all the functionality supported.
 
 ![Developer screen](screenshots/cm-operations/developer-screen.png)
 
 ## Rebuild Services
-Several times in this tutorial you'll need to rebuild CloudMunch containers. To do this, execute the commands below from within CloudMunch installation folder.
+Several times in this tutorial you'll need to rebuild CloudMunch containers. To do this, 
 
-```bash
-docker-compose down;docker-compose build;docker-compose up -d
-```
+- execute the command `sh customizeCloudMunch.sh` from within CloudMunch installation folder
+- And then reset the API's cache using the API `http://192.168.99.100:8000/api/reset` (The `apikey` param is not necessary)
+
+### Behind the scenes
+Within the script, the following operations occur
+- CloudMunch is composed of several microservices including 'ui', 'core' & 'executor'
+- The 'executor' service is where your plugin will be installed. This service is rebuilt using docker
+  - The service's dockerfile contains instructions to copy custom plugins into the image and then install them using the install.sh script.
+- All the definitions you've specified need to be copied to the core. Here, we simply copy the files to the shared mount
+- Since the API may have cached certain responses, clearing the API cache is also necessary
+
+**Important**: The scripts today assume that the shared folders on the docker host are `/home/docker/platform` and that the docker host is `default`. If either of these assumptions are not true, please edit the scripts before you run them.
 
 ![Rebuilding CloudMunch](screenshots/docker-commands/rebuild-cloudmunch.gif)
 
