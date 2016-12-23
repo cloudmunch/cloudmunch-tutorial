@@ -101,7 +101,7 @@ These other files are necessary based on the language your plugin will be writte
 Did you notice that the plugin logo in the Hello World example was the CloudMunch logo? You can also add your own logo to a plugin. Just name the file: `logo.png` and put it under `images` (parallel to `src`). When CloudMunch is rebuilt, the image will be copied as the logo of the plugin.
 
 ## Stubbed Plugin
-Before we plugin all the parts necessary for an end-user to add resources and see insights, lets start with a stubbed plugin which skips all of the user interactions, fetches and just shows us the end result.
+Before we do everything necessary for an end-user to add resources and see insights, lets start with a stubbed plugin which skips all of the user interactions, fetches and just shows us the end result.
 
 - [Create](#quick-application-creation) an application without any resources, integrations or tasks
 - Copy the application's ID (referred to below as `application_id`)
