@@ -6,7 +6,7 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 +----------------------+--------------------------------+ 
 | Definition           | UI                             | 
 +======================+================================+ 
-| |text_input|      | |ui_configure_tab_text|        | 
+| |text_input|         | |ui_configure_tab_text|        | 
 +----------------------+--------------------------------+ 
 | |textarea_input|     | |ui_configure_tab_textarea|    | 
 +----------------------+--------------------------------+ 
