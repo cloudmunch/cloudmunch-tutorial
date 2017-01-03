@@ -6,19 +6,13 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 +----------------------+--------------------------------+ 
 | Definition           | UI                             | 
 +======================+================================+ 
-| HELLO                |                     WORLD      | 
-+----------------------+--------------------------------+
-
+| |text_input| | |ui_configure_tab_text| | 
 +----------------------+--------------------------------+ 
-| Definition           | UI                             | 
-+======================+================================+ 
-| |text_input|           | |ui_configure_tab_text|      | 
+| |textarea_input| | |ui_configure_tab_textarea| | 
 +----------------------+--------------------------------+ 
-| |textarea_input|     | |ui_configure_tab_textarea|    | 
+| |radioButton_input| | |ui_configure_tab_radioButton| | 
 +----------------------+--------------------------------+ 
-| |radioButton_input|  | |ui_configure_tab_radioButton| | 
-+----------------------+--------------------------------+ 
-| |dropdown_input|     | |ui_configure_tab_dropdown|    | 
+| |dropdown_input| | |ui_configure_tab_dropdown| | 
 +----------------------+--------------------------------+
 
 The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to ``/dashboard/developer`` to see actual examples of all the functionality supported.
@@ -32,6 +26,6 @@ The design supports more complexities such as runtime values for dropdowns or ra
 .. |radioButton_input| image:: screenshots/configuration_driven_ui/radioButton_input.png
 .. |dropdown_input| image:: screenshots/configuration_driven_ui/dropdown_input.png
 .. |ui_configure_tab_text| image:: screenshots/configuration_driven_ui/ui_configure_tab_text.png
-.. |textarea_ui| image:: screenshots/configuration_driven_ui/ui_configure_tab_textarea.png
-.. |radiobutton_ui| image:: screenshots/configuration_driven_ui/ui_configure_tab_radioButton.png
+.. |ui_configure_tab_textarea| image:: screenshots/configuration_driven_ui/ui_configure_tab_textarea.png
+.. |ui_configure_tab_radioButton| image:: screenshots/configuration_driven_ui/ui_configure_tab_radioButton.png
 .. |ui_configure_tab_dropdown| image:: screenshots/configuration_driven_ui/ui_configure_tab_dropdown.png
