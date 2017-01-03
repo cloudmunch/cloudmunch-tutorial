@@ -182,3 +182,5 @@ Lets now add the resource to CloudMunch.
    resource in ui
 
 A resource is only available within an integration. So before we can add this resource, we'll need an Integration. Lets add one next.
+
+.. |Resource category| image:: screenshots/resource_googlesheets_v1/resource_categorization.png

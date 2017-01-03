@@ -11,13 +11,13 @@ table below demonstrates how UI changes based on content in the JSON.
 +----------------------+----------------------------+
 | Definition           | UI                         |
 +======================+============================+
-| |plugin.json file|   | |How it looks in the UI|   |
+| |text_input|   	   | |ui_configure_tab_text|   |
 +----------------------+----------------------------+
-| |plugin.json file|   | |How it looks in the UI|   |
+| |textarea_input|     | |ui_configure_tab_textarea|   |
 +----------------------+----------------------------+
-| |plugin.json file|   | |How it looks in the UI|   |
+| |radioButton_input|  | |ui_configure_tab_radioButton|   |
 +----------------------+----------------------------+
-| |plugin.json file|   | |How it looks in the UI|   |
+| |dropdown_input|     | |ui_configure_tab_dropdown|   |
 +----------------------+----------------------------+
 
 The design supports more complexities such as runtime values for
@@ -30,16 +30,11 @@ examples of all the functionality supported.
 
    Developer screen
 
-.. |plugin definition file| image:: screenshots/hello-world-plugin-v1/plugin_json.png
-.. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_plugin_tab.png
-.. |Resource category| image:: screenshots/resource_googlesheets_v1/resource_categorization.png
-.. |Google OAuth 2| image:: screenshots/interface_googlesheets_v1/OAuthFlow.png
-.. |plugin.json file| image:: screenshots/hello-world-plugin-v1/text_input.png
-.. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_configure_tab_text.png
-.. |plugin.json file| image:: screenshots/hello-world-plugin-v1/textarea_input.png
-.. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_configure_tab_textarea.png
-.. |plugin.json file| image:: screenshots/hello-world-plugin-v1/radioButton_input.png
-.. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_configure_tab_radioButton.png
-.. |plugin.json file| image:: screenshots/hello-world-plugin-v1/dropdown_input.png
-.. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_configure_tab_dropdown.png
-.. |Rebuilding CloudMunch| image:: screenshots/cm-operations/customizeCloudMunch.gif   
+.. |text_input| image:: screenshots/configuration_driven_ui/text_input.png
+.. |textarea_input| image:: screenshots/configuration_driven_ui/textarea_input.png
+.. |radioButton_input| image:: screenshots/configuration_driven_ui/radioButton_input.png
+.. |dropdown_input| image:: screenshots/configuration_driven_ui/dropdown_input.png
+.. |ui_configure_tab_text| image:: screenshots/configuration_driven_ui/ui_configure_tab_text.png
+.. |textarea_ui| image:: screenshots/configuration_driven_ui/ui_configure_tab_textarea.png
+.. |radiobutton_ui| image:: screenshots/configuration_driven_ui/ui_configure_tab_radioButton.png
+.. |ui_configure_tab_dropdown| image:: screenshots/configuration_driven_ui/ui_configure_tab_dropdown.png

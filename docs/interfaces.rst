@@ -373,12 +373,11 @@ the system.
 Lets now add the interface to CloudMunch.
 
 -  Download the contents of the folder
-   `interface\_googlesheets\_v1 <examples/interface_googlesheets_v1>`__
-   to the folder "custom/interfaces" inside the CloudMunch installation
+   `interface\_googlesheets\_v1 <examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
    folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation
-   folder and `rebuild CloudMunch <#rebuild-services>`__
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and `rebuild CloudMunch <#rebuild-services>`__
 
--  Once the services are up, you can verify if the interface has been
-   added by invoking the API ``api/interfaces/googlesheets``.
+-  Once the services are up, you can verify if the interface has been added by invoking the API ``api/interfaces/googlesheets``.
+
+.. |Google OAuth 2| image:: screenshots/interface_googlesheets_v1/OAuthFlow.png
