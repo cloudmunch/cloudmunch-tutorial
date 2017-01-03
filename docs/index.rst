@@ -8,5 +8,5 @@
    integrations
    interfaces
    quick_application_creation
-   configuration-driven_ui
+   configuration_driven_ui
    troubleshooting
