@@ -19,6 +19,7 @@ The design supports more complexities such as runtime values for dropdowns or ra
 
 .. figure:: screenshots/cm-operations/developer-screen.png
    :alt: Developer screen
+Developer screen
 
 .. |text_input| image:: screenshots/configuration_driven_ui/text_input.png
 .. |textarea_input| image:: screenshots/configuration_driven_ui/textarea_input.png
