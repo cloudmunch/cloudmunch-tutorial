@@ -18,6 +18,12 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 +----------------------+--------------------------------+
 | Definition           | UI                             |
 +======================+================================+
+| Hello  	   | World        |
++----------------------+--------------------------------+
+
++----------------------+--------------------------------+
+| Definition           | UI                             |
++======================+================================+
 | |text_input|   	   | |ui_configure_tab_text|        |
 +----------------------+--------------------------------+
 | |textarea_input|     | |ui_configure_tab_textarea|    |
@@ -27,15 +33,11 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 | |dropdown_input|     | |ui_configure_tab_dropdown|    |
 +----------------------+--------------------------------+
 
-The design supports more complexities such as runtime values for
-dropdowns or radio buttons, validations for inputs and even dependencies
-between inputs. Navigate to ``/dashboard/developer`` to see actual
-examples of all the functionality supported.
+The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to ``/dashboard/developer`` to see actual examples of all the functionality supported.
 
 .. figure:: screenshots/cm-operations/developer-screen.png
    :alt: Developer screen
-
-   Developer screen
+   :caption: Developer screen
 
 .. |text_input| image:: screenshots/configuration_driven_ui/text_input.png
 .. |textarea_input| image:: screenshots/configuration_driven_ui/textarea_input.png
