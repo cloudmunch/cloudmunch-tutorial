@@ -2,6 +2,7 @@ Configuration Driven UI
 -----------------------
 
 CloudMunch's UI easily supports configuring third-party tools and integrations. We do this by implementing a pattern we call "Configuration Driven UI". You, the developer of the third-party tool, tell us what we should show on screen through a simple JSON. Our framework parses the JSON and renders your configuration as HTML. The table below demonstrates how UI changes based on content in the JSON.
+
 +----------------------+--------------------------------+ 
 | Definition           | UI                             | 
 +======================+================================+ 
