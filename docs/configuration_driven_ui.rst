@@ -6,8 +6,8 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 +----------------------+--------------------------------+ 
 | Definition           | UI                             | 
 +======================+================================+ 
-| HELLO           | WORLD      |  
-+----------------------+--------------------------------+ 
+| HELLO                |                     WORLD      | 
++----------------------+--------------------------------+
 
 +----------------------+--------------------------------+ 
 | Definition           | UI                             | 
@@ -19,7 +19,7 @@ CloudMunch's UI easily supports configuring third-party tools and integrations. 
 | |radioButton_input|  | |ui_configure_tab_radioButton| | 
 +----------------------+--------------------------------+ 
 | |dropdown_input|     | |ui_configure_tab_dropdown|    | 
-+----------------------+--------------------------------+ 
++----------------------+--------------------------------+
 
 The design supports more complexities such as runtime values for dropdowns or radio buttons, validations for inputs and even dependencies between inputs. Navigate to ``/dashboard/developer`` to see actual examples of all the functionality supported.
 
