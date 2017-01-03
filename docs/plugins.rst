@@ -119,16 +119,14 @@ Before we do everything necessary for an end-user to add resources and see insig
 
 .. figure:: screenshots/plugin_googlesheets_v1/insight_dashboard.png
    :alt: Card
-
-   Card
+Card
 
 -  Our (rather sombre) Insights are ready. The work is done by `GoogleSheet.class.php <examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__
    in the ``process`` method. Rather than explain what is occurring, I've added inline comments you can read with the code. For more information on the utilities used, please refer to the `SDK documentation <https://github.com/cloudmunch/CloudMunch-php-SDK-V2>`__
 
 .. figure:: screenshots/plugin_googlesheets_v1/plugin_code.png
    :alt: Plugin code
-
-   Plugin code
+Plugin code
 
 Done! But that was a stubbed plugin and a mock Resource. So you know what the output will look like. Lets now create an actual resource that the end-user can see and configure.
 
