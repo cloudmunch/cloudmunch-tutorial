@@ -10,6 +10,7 @@ As in earlier cases, it is essentially just a JSON file. Before we look at the J
 
 .. figure:: screenshots/interface_googlesheets_v1/OAuthFlow.png
     :alt: Google Oauth
+    
     Google's OAuth is not a single step process. It involves multiple calls to the API where we first authenticate the client, get user authorization, get a code and then use code to get an Access Token. This Access token is what is used in subsequent requests to the API. This means the interface file has to be capable of not just defining what actions are possible on an Integration but also chaining those actions automatically.
 
 Interface Definition
