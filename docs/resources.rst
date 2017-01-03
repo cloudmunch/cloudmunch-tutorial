@@ -54,110 +54,14 @@ The JSON file above is the definition of the integration. The fields ``id``, ``l
 
 -  category: This node tells CloudMunch what category the resource belongs into.
 
-+------+------+
-| Reme | |Res |
-| mber | ourc |
-| this | e    |
-| scre | cate |
-| en?  | gory |
-| It   | |    |
-| is   |      |
-| disp |      |
-| laye |      |
-| d    |      |
-| when |      |
-| choo |      |
-| sing |      |
-| reso |      |
-| urce |      |
-| s.   |      |
-| Note |      |
-| that |      |
-| they |      |
-| are  |      |
-| orga |      |
-| nize |      |
-| d    |      |
-| by   |      |
-| Cate |      |
-| gori |      |
-| es   |      |
-| (on  |      |
-| the  |      |
-| extr |      |
-| eme  |      |
-| left |      |
-| )The |      |
-| cate |      |
-| gory |      |
-| you  |      |
-| ente |      |
-| r    |      |
-| will |      |
-| most |      |
-| ly   |      |
-| be   |      |
-| one  |      |
-| of   |      |
-| the  |      |
-| exis |      |
-| ting |      |
-| ones |      |
-| from |      |
-| this |      |
-| scre |      |
-| en.  |      |
-| If   |      |
-| you  |      |
-| add  |      |
-| a    |      |
-| new  |      |
-| one, |      |
-| the  |      |
-| reso |      |
-| urce |      |
-| will |      |
-| stil |      |
-| l    |      |
-| be   |      |
-| disp |      |
-| laye |      |
-| d,   |      |
-| but  |      |
-| in   |      |
-| the  |      |
-| new  |      |
-| cate |      |
-| gory |      |
-| you' |      |
-| ve   |      |
-| ente |      |
-| red. |      |
-| Reme |      |
-| mber |      |
-| to   |      |
-| add  |      |
-| at   |      |
-| leas |      |
-| t    |      |
-| one, |      |
-| reso |      |
-| urce |      |
-| s    |      |
-| with |      |
-| out  |      |
-| cate |      |
-| gori |      |
-| es   |      |
-| are  |      |
-| not  |      |
-| disp |      |
-| laye |      |
-| d    |      |
-| in   |      |
-| the  |      |
-| UI.  |      |
-+------+------+
++------------------------------------------------------------------------+------------------------------------------------------------------------+ 
+| Remember this screen? It is displayed when choosing resources. Note    | |Resource category|                                                    | 
+| they are organized by Categories (on the extr eme left) The category   |                                                                        | 
+| you ente r will most ly be one of the exis ting ones from this screen. |                                                                        | 
+| If you add a new one, the resource will stil l be disp layed, but in   |                                                                        | 
+| the new cate gory you' ve ente red. Reme mber to add at least one,     |                                                                        | 
+| reso urce s with out cate gori es are not disp laye d in the UI.       |                                                                        | 
++------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 -  fields: This node tells CloudMunch what fields to display when someone is adding this resource into their application. Here, since we are adding a Google Sheets resource, we need the user to enter a name for the resource, the Sheet ID and the Range. The node follows CloudMunch's `Configuration Driven UI <#configuration-driven-ui>`__ pattern.
 
