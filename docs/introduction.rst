@@ -1,5 +1,5 @@
 Introduction
-------------
+============
 
 This document will help you learn how to add your own custom
 functionality to CloudMunch through a step-by-step process.
@@ -15,15 +15,6 @@ Pre-requisites
 --------------
 
 -  Basic working knowledge of Docker
-
-Table of Contents
------------------
-
--  `Aim <#our-aim>`__
--  `Plugins <#plugins>`__
--  `Resources <#resources>`__
--  `Integrations <#integrations>`__
--  `Interfaces <#interfaces>`__
 
 Our Aim
 -------
