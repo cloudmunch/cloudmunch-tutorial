@@ -25,7 +25,7 @@ Hello World Plugin v1
    Add the plugin
 
 Troubleshooting 
----------------
+~~~~~~~~~~~~~~~
 
 If you don't see the plugin in the list, it may be because the JSON is not well formed or because of caching. Verify the JSON and clear cache `http://<your\_host>:8000/api/reset`
 
@@ -73,7 +73,7 @@ Lets look at the other files necessary to add a plugin. In our example we have
 These other files are necessary based on the language your plugin will be written in. We are using `PHP <https://github.com/cloudmunch/CloudMunch-php-SDK-V2/blob/master/README.md>`__ in this example but plugins can also be written in `Ruby <https://github.com/cloudmunch/cloudmunch-Ruby-SDK/blob/master/README.md>`__ and `Java <https://github.com/cloudmunch/CloudMunch-SDK-Java/blob/master/README.md>`__. Do read the respective ReadMe.md files for detailed information on the syntax.
 
 Plugin Logos
-~~~~~~~~~~~~
+-------------
 
 Did you notice that the plugin logo in the Hello World example was the CloudMunch logo? You can also add your own logo to a plugin. Just name the file: ``logo.png`` and put it under ``images`` (parallel to ``src``). When CloudMunch is rebuilt, the image will be copied as the logo of the plugin.
 

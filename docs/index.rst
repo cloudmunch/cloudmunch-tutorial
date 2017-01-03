@@ -4,3 +4,9 @@
 
    introduction
    plugins
+   resources
+   integrations
+   interfaces
+   quick_application_creation
+   configuration-driven_ui
+   troubleshooting
