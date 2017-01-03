@@ -3,3 +3,4 @@
    :caption: CloudMunch Tutorial
 
    introduction
+   plugins
