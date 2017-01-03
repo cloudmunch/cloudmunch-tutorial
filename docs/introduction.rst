@@ -1,15 +1,12 @@
 Introduction
 ============
 
-This document will help you learn how to add your own custom
-functionality to CloudMunch through a step-by-step process.
+This document will help you learn how to add your own custom functionality to CloudMunch through a step-by-step process.
 
 Intended audience
 -----------------
 
-A developer who has `installed CloudMunch
-locally <https://github.com/cloudmunch/Install>`__ and now wants to
-extend it with his (or her) own functionality
+A developer who has `installed CloudMunch locally <https://github.com/cloudmunch/Install>`__ and now wants to extend it with his (or her) own functionality
 
 Pre-requisites
 --------------
@@ -19,18 +16,15 @@ Pre-requisites
 Our Aim
 -------
 
-By the end of this exercise our aim is to fetch data from a google
-spreadsheet and display some insight in an application.
+By the end of this exercise our aim is to fetch data from a google spreadsheet and display some insight in an application.
 
-To achieve our aim, we'll need to configure a task to retrieve data from
-a
+To achieve our aim, we'll need to configure a task to retrieve data from a
 
 -  Source
 -  (in a) Third-party System
 -  (which we'll transform into) Insights
 
-Or in "CloudMunch" language, we'll be configuring a ``Task`` which will
-contain a ``plugin`` configured to retrieve data from a
+Or in "CloudMunch" language, we'll be configuring a ``Task`` which will contain a ``plugin`` configured to retrieve data from a
 
 -  Resource
 -  (in an) Integration
