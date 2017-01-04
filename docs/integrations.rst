@@ -69,7 +69,7 @@ pattern.
 Lets now add the integration to CloudMunch.
 
 -  Download the contents of the folder
-   `integration\_googlesheets\_v1 <examples/integration_googlesheets_v1>`__
+   `integration\_googlesheets\_v1 <../examples/integration_googlesheets_v1>`__
    to the folder "custom/integrations" inside the CloudMunch
    installation folder.
 

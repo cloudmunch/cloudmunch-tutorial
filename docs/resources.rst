@@ -63,7 +63,7 @@ The JSON file above is the definition of the integration. The fields ``id``, ``l
 
 Lets now add the resource to CloudMunch.
 
--  Download the contents of the folder `resource\_googlesheets\_v1 <examples/resource_googlesheets_v1>`__ to the folder "custom/resources" inside the CloudMunch installation folder.
+-  Download the contents of the folder `resource\_googlesheets\_v1 <../examples/resource_googlesheets_v1>`__ to the folder "custom/resources" inside the CloudMunch installation folder.
 
 -  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
 
