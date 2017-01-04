@@ -8,7 +8,7 @@ Hello World Plugin v1
 
 -  Download the contents of the folder `hello-world-plugin-v1 <examples/plugin_hello_world_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `rebuild CloudMunch <#rebuild-services>`__
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
 
 -  Once the services are up, you can verify if the plugin has been added by invoking the API ``api/plugins/hello_world``.
 
@@ -61,7 +61,7 @@ The nodes: ``_created_by``, ``name``, ``description``, ``author``, ``id``, ``ver
 
 -  ``status``: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than ``enabled`` are ignored and will not be available for use within the system.
 -  ``execute``: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are ``PHP``, ``Java`` and ``Ruby``
--  ``inputs``: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes ``mandatory (true/false)``, ``display (yes/no)`` and ``label`` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the `Configuration Driven UI <#configuration-driven-ui>`__ pattern you are already familiar with.
+-  ``inputs``: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes ``mandatory (true/false)``, ``display (yes/no)`` and ``label`` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the `Configuration Driven UI`_ pattern you are already familiar with.
 -  ``outputs``: The contents of this node tell us what variables are put into the task after the plugin has completed execution. The values of these variables can then be used to influence subsequent steps. 
 
 Lets look at the other files necessary to add a plugin. In our example we have
@@ -111,7 +111,7 @@ Before we do everything necessary for an end-user to add resources and see insig
 -  Go to the file `GoogleSheet.class.php <examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__ and edit the line ``$resourceID = "RES2016122308584024026";``\ and replace the actual resource ID as the value.
 -  Download the contents of the folder `plugin\_googlesheets\_v1 <examples/plugin_googlesheets_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `rebuild CloudMunch <#rebuild-services>`__
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
 
 -  Once the services are up, you can verify if the plugin has been added by invoking the API ``api/plugins/googlesheets``.
 
@@ -132,3 +132,5 @@ Done! But that was a stubbed plugin and a mock Resource. So you know what the ou
 
 .. |plugin definition file| image:: screenshots/hello-world-plugin-v1/plugin_json.png
 .. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_plugin_tab.png
+.. _Rebuild Services: docs/rebuild_services.rst
+.. _Configuration Driven UI: docs/configuration_driven_ui

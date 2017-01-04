@@ -235,6 +235,6 @@ Lets now add the interface to CloudMunch.
    `interface\_googlesheets\_v1 <examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
    folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `rebuild CloudMunch <#rebuild-services>`__
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
 
 -  Once the services are up, you can verify if the interface has been added by invoking the API ``api/interfaces/googlesheets``.

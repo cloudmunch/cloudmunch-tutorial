@@ -8,5 +8,6 @@
    integrations
    interfaces
    quick_application_creation
+   rebuild_services
    configuration_driven_ui
    troubleshooting
