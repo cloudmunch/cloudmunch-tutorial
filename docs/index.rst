@@ -4,7 +4,7 @@ CloudMunch Tutorial
 
 .. toctree::
    :maxdepth: 2
-   :caption: CloudMunch Tutorial
+   :caption: Table of Contents
 
    introduction
    plugins
