@@ -59,13 +59,13 @@ The JSON file above is the definition of the integration. The fields ``id``, ``l
 
     Remember this screen? It is displayed when choosing resources. Note they are organized by Categories (on the extr eme left) The category you enter will most ly be one of the existing ones from this screen. If you add a new one, the resource will stil l be disp layed, but in the new category you've ente red. Remember to add at least one, resources  without categories are not displayed in the UI.
 
--  fields: This node tells CloudMunch what fields to display when someone is adding this resource into their application. Here, since we are adding a Google Sheets resource, we need the user to enter a name for the resource, the Sheet ID and the Range. The node follows CloudMunch's :ref:`configuration_driven_ui` pattern.
+-  fields: This node tells CloudMunch what fields to display when someone is adding this resource into their application. Here, since we are adding a Google Sheets resource, we need the user to enter a name for the resource, the Sheet ID and the Range. The node follows CloudMunch's :doc:`configuration_driven_ui` pattern.
 
 Lets now add the resource to CloudMunch.
 
 -  Download the contents of the folder `resource\_googlesheets\_v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/resource_googlesheets_v1>`__ to the folder "custom/resources" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and :ref:`rebuild_services`
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and :doc:`rebuild_services`
 
 -  Once the services are up, you can verify if the resource has been added by invoking the API ``/definitions/resource_types/googlesheets``.
 
