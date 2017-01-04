@@ -63,7 +63,7 @@ use it.
 
 This node tells CloudMunch what fields to display when someone is adding
 an instance of this integration into their application. The nodes follow
-CloudMunch's :doc:`configuration_driven_ui`
+CloudMunch's :doc:`Configuration Driven UI<configuration_driven_ui>`
 pattern.
 
 Lets now add the integration to CloudMunch.
@@ -74,7 +74,7 @@ Lets now add the integration to CloudMunch.
    installation folder.
 
 -  Switch to the command prompt, navigate to the CloudMunch installation
-   folder and :doc:`rebuild_services`
+   folder and :doc:`Rebuild Services<rebuild_services>`
 
 -  Once the services are up, you can verify if the Integration has been
    added by invoking the API
