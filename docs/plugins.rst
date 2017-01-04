@@ -6,9 +6,9 @@ Plugins are are CloudMunch's workhorses: how stuff get done. Lets start with the
 Hello World Plugin v1
 ---------------------
 
--  Download the contents of the folder `hello-world-plugin-v1 <../examples/plugin_hello_world_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
+-  Download the contents of the folder `hello-world-plugin-v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_hello_world_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and :ref:`rebuild_services`
 
 -  Once the services are up, you can verify if the plugin has been added by invoking the API ``api/plugins/hello_world``.
 
@@ -42,7 +42,7 @@ Plugin files
 -------------
 
 Lets understand the files necessary for a plugin. Open up the
-`hello-world-plugin-v1 <../examples/plugin_hello_world_v1/hello_world>`__
+`hello-world-plugin-v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_hello_world_v1/hello_world>`__
 folder. Here you will find several files. Lets delve into a bit more
 detail of the file: plugin.json
 
@@ -61,7 +61,7 @@ The nodes: ``_created_by``, ``name``, ``description``, ``author``, ``id``, ``ver
 
 -  ``status``: The value in this node tells us whether to pick up your plugin or not. Plugins with any status other than ``enabled`` are ignored and will not be available for use within the system.
 -  ``execute``: The contents of this node tell us which language the plugin is written in and where to find the plugin's executable. The languages we support today are ``PHP``, ``Java`` and ``Ruby``
--  ``inputs``: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes ``mandatory (true/false)``, ``display (yes/no)`` and ``label`` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the `Configuration Driven UI`_ pattern you are already familiar with.
+-  ``inputs``: The contents of this node tell us what fields a user should see and enter data for when configuring this plugin within a task. In the example, you'll notice that the input is a non-mandatory 'text' field whose label is "Phrase". Change values of the nodes ``mandatory (true/false)``, ``display (yes/no)`` and ``label`` to see how the display and plugin behavior is changed. As you've probably already discovered, this node also follows the :ref:`configuration_driven_ui` pattern you are already familiar with.
 -  ``outputs``: The contents of this node tell us what variables are put into the task after the plugin has completed execution. The values of these variables can then be used to influence subsequent steps. 
 
 Lets look at the other files necessary to add a plugin. In our example we have
@@ -108,10 +108,10 @@ Before we do everything necessary for an end-user to add resources and see insig
 
 -  Notice the ``"id":"RES2016122308584024026"`` in the response? This is the ID allocated to your resource. We'll use it in the stubbed plugin 
 
--  Go to the file `GoogleSheet.class.php <../examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__ and edit the line ``$resourceID = "RES2016122308584024026";``\ and replace the actual resource ID as the value.
--  Download the contents of the folder `plugin\_googlesheets\_v1 <../examples/plugin_googlesheets_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
+-  Go to the file `GoogleSheet.class.php <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__ and edit the line ``$resourceID = "RES2016122308584024026";``\ and replace the actual resource ID as the value.
+-  Download the contents of the folder `plugin\_googlesheets\_v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_googlesheets_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and :ref:`rebuild_services`
 
 -  Once the services are up, you can verify if the plugin has been added by invoking the API ``api/plugins/googlesheets``.
 
@@ -121,7 +121,7 @@ Before we do everything necessary for an end-user to add resources and see insig
    :alt: Card
 Card
 
--  Our (rather sombre) Insights are ready. The work is done by `GoogleSheet.class.php <../examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__
+-  Our (rather sombre) Insights are ready. The work is done by `GoogleSheet.class.php <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_googlesheets_v1/googlesheets/src/GoogleSheet.class.php>`__
    in the ``process`` method. Rather than explain what is occurring, I've added inline comments you can read with the code. For more information on the utilities used, please refer to the `SDK documentation <https://github.com/cloudmunch/CloudMunch-php-SDK-V2>`__
 
 .. figure:: screenshots/plugin_googlesheets_v1/plugin_code.png
@@ -133,4 +133,3 @@ Done! But that was a stubbed plugin and a mock Resource. So you know what the ou
 .. |plugin definition file| image:: screenshots/hello-world-plugin-v1/plugin_json.png
 .. |How it looks in the UI| image:: screenshots/hello-world-plugin-v1/ui_plugin_tab.png
 .. _Rebuild Services: docs/rebuild_services.rst
-.. _Configuration Driven UI: docs/configuration_driven_ui

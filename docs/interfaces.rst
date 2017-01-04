@@ -232,9 +232,9 @@ NOTE: If you don't pass the ID, you'll get back *all* the interfaces in the syst
 Lets now add the interface to CloudMunch.
 
 -  Download the contents of the folder
-   `interface\_googlesheets\_v1 <../examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
+   `interface\_googlesheets\_v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
    folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `Rebuild Services`_
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and :ref:`rebuild_services`
 
 -  Once the services are up, you can verify if the interface has been added by invoking the API ``api/interfaces/googlesheets``.
