@@ -63,18 +63,18 @@ use it.
 
 This node tells CloudMunch what fields to display when someone is adding
 an instance of this integration into their application. The nodes follow
-CloudMunch's `Configuration Driven UI <#configuration-driven-ui>`__
+CloudMunch's :doc:`Configuration Driven UI<configuration_driven_ui>`
 pattern.
 
 Lets now add the integration to CloudMunch.
 
 -  Download the contents of the folder
-   `integration\_googlesheets\_v1 <examples/integration_googlesheets_v1>`__
+   `integration\_googlesheets\_v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/integration_googlesheets_v1>`__
    to the folder "custom/integrations" inside the CloudMunch
    installation folder.
 
 -  Switch to the command prompt, navigate to the CloudMunch installation
-   folder and `rebuild CloudMunch <#rebuild-services>`__
+   folder and :doc:`Rebuild Services<rebuild_services>`
 
 -  Once the services are up, you can verify if the Integration has been
    added by invoking the API

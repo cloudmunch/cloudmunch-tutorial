@@ -16,27 +16,7 @@ As in earlier cases, it is essentially just a JSON file. Before we look at the J
 Interface Definition
 ~~~~~~~~~~~~~~~~~~~~
 
-The content below is the definition of the interface we'll need for integration with Google Sheets. Lets look at the nodes which probably need a bit of explanation
-
--  configuration: This node contains details on the base url that subsequent actions will need to invoke along with the protocol, header and any IDs/secrets
--  map: Think of this node as a global object available to all actions. When the action is invoked, any keys that match this map's keys will be replaced with the map's values. In this example, any parameters which expect a emailID will get the current user's user ID.
--  actions: This node lists all the actions possible on the interface. The key of the node is the action invoked on the integration within CloudMunch. In the values you'll see:
--  path: the actual address to add to the base\_url to invoke for this action
--  method: the response sent back to the caller from the API. ( In the case of authorize, you see "REDIRECT" - which will ensure the user sees Google's account selection screen )
--  input: The params to be added to the url. These will be based on the OAuth documentation of the system you are interacting with.
--  output: The response sent back from the third-party-system
--  condition: The conditions under which this action needs to be performed. In this example, the condition checks the integration to see if an access token is already available. If one is, the operation simply completes without accessing the third-party-system again. 
--  parameters: Imagine that a action is a method you call on CloudMunch's API, these are the parameters that method expects to see. Internally, these parameters may get converted into the inputs you saw above or used internally for some processing. In the action "authorize" below, the application and integration IDs are necessary since the integration will be updated with the access token returned by Google.
--  next\_action: Tells CloudMunch what to do after the response comes back. In this case, CloudMunch makes another call to Google (passing the state it got back and expecting back an access token)
-
-GoogleSheets involves OAuth and is one of the more complex examples you'll see in CloudMunch interfaces. If your integration only specifies a username and password, the interface will be much simpler. You can explore and inspect all current interfaces with the following API
-
-.. code:: bash
-
-    /api/interfaces/<interface id>
-
-NOTE: If you don't pass the ID, you'll get back *all* the interfaces in
-the system.
+The content below is the definition of the interface we'll need for integration with Google Sheets. 
 
 .. code:: json
 
@@ -229,12 +209,33 @@ the system.
         }
     }
 
+Lets look at the nodes which probably need a bit of explanation
+
+-  configuration: This node contains details on the base url that subsequent actions will need to invoke along with the protocol, header and any IDs/secrets
+-  map: Think of this node as a global object available to all actions. When the action is invoked, any keys that match this map's keys will be replaced with the map's values. In this example, any parameters which expect a emailID will get the current user's user ID.
+-  actions: This node lists all the actions possible on the interface. The key of the node is the action invoked on the integration within CloudMunch. In the values you'll see:
+-  path: the actual address to add to the base\_url to invoke for this action
+-  method: the response sent back to the caller from the API. ( In the case of authorize, you see "REDIRECT" - which will ensure the user sees Google's account selection screen )
+-  input: The params to be added to the url. These will be based on the OAuth documentation of the system you are interacting with.
+-  output: The response sent back from the third-party-system
+-  condition: The conditions under which this action needs to be performed. In this example, the condition checks the integration to see if an access token is already available. If one is, the operation simply completes without accessing the third-party-system again. 
+-  parameters: Imagine that a action is a method you call on CloudMunch's API, these are the parameters that method expects to see. Internally, these parameters may get converted into the inputs you saw above or used internally for some processing. In the action "authorize" below, the application and integration IDs are necessary since the integration will be updated with the access token returned by Google.
+-  next\_action: Tells CloudMunch what to do after the response comes back. In this case, CloudMunch makes another call to Google (passing the state it got back and expecting back an access token)
+
+GoogleSheets involves OAuth and is one of the more complex examples you'll see in CloudMunch interfaces. If your integration only specifies a username and password, the interface will be much simpler. You can explore and inspect all current interfaces with the following API
+
+.. code:: bash
+
+    /api/interfaces/<interface id>
+
+NOTE: If you don't pass the ID, you'll get back *all* the interfaces in the system.
+
 Lets now add the interface to CloudMunch.
 
 -  Download the contents of the folder
-   `interface\_googlesheets\_v1 <examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
+   `interface\_googlesheets\_v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/interface_googlesheets_v1>`__ to the folder "custom/interfaces" inside the CloudMunch installation
    folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and `rebuild CloudMunch <#rebuild-services>`__
+-  Switch to the command prompt, navigate to the CloudMunch installation folder and :doc:`Rebuild Services<rebuild_services>`
 
 -  Once the services are up, you can verify if the interface has been added by invoking the API ``api/interfaces/googlesheets``.
