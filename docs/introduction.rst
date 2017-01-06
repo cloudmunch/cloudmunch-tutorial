@@ -6,12 +6,13 @@ This document will help you learn how to add your own custom functionality to Cl
 Intended audience
 -----------------
 
-A developer who has `installed CloudMunch locally <https://github.com/cloudmunch/Install>`__ and now wants to extend it with his (or her) own functionality
+A developer who has :doc:`installed <installation>` and used CloudMunch, and now wants to extend it with custom functionality
 
 Pre-requisites
 --------------
 
 -  Basic working knowledge of Docker
+-  Working installation of CloudMunch
 
 Our Aim
 -------

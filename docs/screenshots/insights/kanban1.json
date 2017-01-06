@@ -1,0 +1,52 @@
+{
+  "name": "Info",
+  "application_id": "APP2016062707310349855",
+  "pipeline_id": "PIP2016063009124825756",
+  "run_id": "96",
+  "created_date": "2016-09-13 09:38:15.47010",
+  "created_by": "executor",
+  "updated_by": "executor",
+  "updated_date": "2016-09-13 13:36:25.79076",
+  "updated_by_pipeline": "PIP2016063009124825756",
+  "id": "INC2016091309381577380",
+  "application_name": "Kube-OS",
+  "resource_id": "RES2016081207310742010",
+  "resource_name": "Perforce-Jam",
+  "insight_report_id": "INR2016091304484830779",
+  "insight_report_name": "2016-09-13",
+  "data": {
+    "data": [
+      {
+        "Server root": " /p4/meta/main",
+        "Server version": " P4D/LINUX26X86_64/2015.2/1326881 (2016/01/18)",
+        "Broker encryption": " encrypted",
+        "Broker version": " P4BROKER/LINUX26X86_64/2015.2/1326881",
+        "Server license": " Perforce Cloud Trials [Hosted] 25 users (expires 2016/09/13)",
+        "Case Handling": " sensitive"
+      }
+    ],
+    "card_meta": {
+      "default": "kanban",
+      "url": "https://ranjith-3522.cloud.perforce.com",
+      "date": "2016-09-13",
+      "label": "Info",
+      "source": "depot",
+      "group": "Perforce",
+      "description": "This plugin shows the info on provided repo.",
+      "visualization_options": [
+        "kanban"
+      ],
+      "xaxis": {
+        "label": null
+      },
+      "yaxis": {
+        "label": null
+      }
+    },
+    "visualization_map": {
+      "cards": {
+        "type": "kanban"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_created_by": "vivek@cloudmunch.com",
+  "documentation": {
+    "description": "A simple insights plugin"
+  },
+  "author": "Vivek Kodira",
+  "id": "gameofthrones",
+  "name": "Game of Thrones Plugin",
+  "tags": [],
+  "version": "1",
+  "status": "enabled",
+  "execute": {
+    "options": "-debug",
+    "language": "PHP",
+    "main": "gameofthrones/src/GameOfThrones.class.php"
+  },
+  "inputs": {
+    "phrase": {
+      "type": "dummy_input_not_used",
+      "label": "Ignore",
+      "mandatory": false,
+      "display": "yes",
+      "defaultValue": "Dummy input. Not used"
+    }
+  },
+  "outputs": {}
+}
