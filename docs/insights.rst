@@ -85,6 +85,18 @@ produces
     :alt: Area example
     :align: center
 
+Code
+^^^^
+SDKs contain utility methods to store the data necessary for each card. For instance, in PHP, to store the data necessary for a Doughnut card, you'd use
+
+.. code-block:: php
+
+	$reportID = $this->cmInsightsHelper->createDoughnutGraph($resourceID, $data, 
+	"LannistersReport", "Lannisters Report", "Tutorial", "Death toll", $source,
+	$sourceURL, json_decode('["alive(4)","dead(1)"]') );
+
+Please refer to the SDKs for more information and examples.
+
 Key Metric
 ----------
 
@@ -104,3 +116,4 @@ A keymetric always has
 
 .. todo::
 	Add description for all the nodes in the insight cards
+	Add plugin method to invoke for each card

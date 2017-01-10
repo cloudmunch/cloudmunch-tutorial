@@ -13,7 +13,7 @@
 
 		//Only method you *need* to implement
 		public function process ( $processParameters ) {
-			//appInput will now contain all the plugin's runtime variables
+			//appInput contains all the plugin's runtime variables
 			$appInput = $processParameters['appInput'];
 			//Send some content to be put into the logs
 			$this->getLogHandler()->log( INFO, "Hello ".$appInput->phrase );

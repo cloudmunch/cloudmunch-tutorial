@@ -9,7 +9,8 @@ CloudMunch may already have come bundled with a sample application. However, let
   
 .. figure:: screenshots/cm-operations/quickApplicationCreation.gif
    :alt: quick application creation
+   :align: center
 
-   quick application creation
+   Quick application creation
   
 You now have a blank application to experiment with.

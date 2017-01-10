@@ -1,0 +1,12 @@
+{
+  "id": "bugzilla",
+  "name": "bugzilla",
+  "description": "Interface file for communicating with bugzilla",
+  "actions": {
+    "get_bugs": {
+      "base_url": "{bugzilla_url}",
+      "path": "/rest/bug?assigned_to={assigned_to}&component=Comp1&include_fields=id,assigned_to,creation_time,component,is_confirmed,is_open,last_change_time,priority,status,resolution",
+      "method": "GET"
+    }
+  }
+}

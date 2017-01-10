@@ -10,3 +10,4 @@ References
    	rebuild_services
    	troubleshooting
    	insights
+   	other_resources

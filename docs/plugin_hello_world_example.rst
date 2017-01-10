@@ -1,12 +1,12 @@
-==================
-Hello World Plugin
-==================
+===========================
+Example: Hello World Plugin
+===========================
 
 Plugins are CloudMunch's workhorses: how stuff gets done. Lets start with the simplest plugin possible: one that simply logs "Hello world" into the logs and exits.
 
 -  Download the contents of the folder `hello-world-plugin-v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_hello_world_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
--  Switch to the command prompt, navigate to the CloudMunch installation folder and :doc:`Rebuild Services<rebuild_services>`
+- :doc:`rebuild_services`
 
 -  Once the services are up, you can verify if the plugin has been added by invoking the API ``api/plugins/hello_world``.
 
@@ -19,6 +19,7 @@ Plugins are CloudMunch's workhorses: how stuff gets done. Lets start with the si
 
 .. figure:: screenshots/cm-operations/add-plugin.gif
    :alt: Add the plugin
+   :align: center
 
    Add the plugin
 
@@ -31,6 +32,7 @@ If you don't see the plugin in the list, it may be because the JSON is not well 
 
 .. figure:: screenshots/hello-world-plugin-v1/edit_and_run_task.gif
    :alt: Modify and run the task
+   :align: center
 
    Modify and run the task
 
@@ -48,7 +50,7 @@ Plugin Definition File
 .. literalinclude:: ../examples/plugin_hello_world_v1/hello_world/plugin.json
    :language: json
 
-This file contains meta-data about the plugin you are adding and is used by us to display the plugin and when configuring it's inputs. It is independent of the language your plugin will eventually be in.
+This file contains meta-data about the plugin you are adding and is used by us to display the configuration screen for a plugin. It is independent of the language your plugin will eventually be in.
 
 The nodes: ``_created_by``, ``name``, ``description``, ``author``, ``id``, ``version`` and ``tags`` are pretty self-explanatory aren't they? So lets discuss ``status``, ``execute``, ``inputs`` & ``outputs``.
 
@@ -92,7 +94,7 @@ Lets look at the other files necessary to add a plugin. In our example we have
 -  composer.json: Composer file. Used to install the plugin and any of its dependencies
 -  install.sh: Installs your plugin. You will typically never need to modify this file and can copy it from any other existing plugin
 
-These other files are necessary based on the language your plugin will be written in. We are using `PHP <https://github.com/cloudmunch/CloudMunch-php-SDK-V2/blob/master/README.md>`__ in this example but plugins can also be written in `Ruby <https://github.com/cloudmunch/cloudmunch-Ruby-SDK/blob/master/README.md>`__ and `Java <https://github.com/cloudmunch/CloudMunch-SDK-Java/blob/master/README.md>`__. Do read the respective ReadMe.md files for detailed information on the syntax.
+These other files are necessary based on the language your plugin will be written in. We are using PHP but :ref:`SDKs<refSDKs>` are also available in Ruby and Java. Do read the respective ReadMe.md files for detailed information on the syntax.
 
 Plugin Logos
 -------------

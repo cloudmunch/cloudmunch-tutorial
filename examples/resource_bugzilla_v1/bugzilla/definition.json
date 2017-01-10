@@ -1,0 +1,28 @@
+{
+  "id": "bugzilla",
+  "integration": "bugzilla",
+  "tags": [
+    "engg",
+    "devops",
+    "bugzilla"
+  ],
+  "type": "bugzilla",
+  "label": "bugzilla",
+  "category": [
+    "Tutorial"
+  ],
+  "component": "hosts",
+  "description": "Choose the host",
+  "fields": {
+    "name": {
+      "label": "Name",
+      "display": "yes",
+      "mandatory": "yes",
+      "type": "text",
+      "defaultValue": "",
+      "hint": "Name of bugzilla resource"
+    }
+  },
+  "carouselText": "These are the insight cards you will be seeing for bugzilla",
+  "carouselItems": []
+}

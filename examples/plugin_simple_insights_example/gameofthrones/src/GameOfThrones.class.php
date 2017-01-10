@@ -14,7 +14,7 @@
         //Only method you *need* to implement
         public function process ( $processParameters ) {
             //Hardcoded resource ID that you need to replace for this to work
-            $resourceID = "RES2017010607331179958";
+            $resourceID = "RES2017010908130049527";
             //A title for the card
             $source= "Tutorial";
             //Will display as a link in the card. User can click to go to the original source

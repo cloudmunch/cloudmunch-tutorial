@@ -1,0 +1,34 @@
+{
+  "_created_by": "vivek@cloudmunch.com",
+  "documentation": {
+    "description": "A simple plugin to get data from bugzilla"
+  },
+  "author": "Vivek Kodira",
+  "id": "bugzilla",
+  "name": "Tutorial Bugzilla Plugin",
+  "tags": [],
+  "version": "1",
+  "status": "enabled",
+  "execute": {
+    "options": "-debug",
+    "language": "PHP",
+    "main": "bugzilla/src/Bugzilla.class.php"
+  },
+  "inputs": {
+    "bugzilla_url": {
+      "type": "text",
+      "display": "yes",
+      "label": "Bugzilla Base URL",
+      "mandatory": true,
+      "hint": "Url of the Bugzilla server. Example https://landfill.bugzilla.org/bugzilla-5.0-branch"
+    },
+    "assigned_to": {
+      "type": "text",
+      "display": "yes",
+      "label": "Bugs Assigned To User",
+      "mandatory": true,
+      "hint": ""
+    }
+  },
+  "outputs": {}
+}

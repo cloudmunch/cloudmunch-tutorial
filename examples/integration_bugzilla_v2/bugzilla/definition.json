@@ -1,0 +1,30 @@
+{
+  "id": "bugzilla",
+  "label": "Bugzilla Server",
+  "type": "bugzilla",
+  "application_import": "no",
+  "display": "yes",
+  "display_advanced": true,
+  "status": "enabled",
+  "documentation": {
+    "description": "Bugzilla provides details on tech debt metrics associated with the projects that are configured in it."
+  },
+  "events": [],
+  "registrationFields": {
+    "bugzilla_url": {
+      "type": "text",
+      "display": "yes",
+      "label": "Bugzilla Base URL",
+      "mandatory": true,
+      "hint": "Url of the Bugzilla server. Example https://landfill.bugzilla.org/bugzilla-5.0-branch"
+    },
+    "assigned_to": {
+      "type": "text",
+      "display": "yes",
+      "label": "Bugs Assigned To User",
+      "mandatory": true,
+      "hint": ""
+    }
+  },
+  "importFields": {}
+}
