@@ -27,8 +27,8 @@ Area Graph          |area1|
 
 All cards are internally stored as JSONs. Below are a few examples of the JSONs and their corresponding cards
 
-Trend
-~~~~~
+Line
+~~~~
 
 .. literalinclude:: screenshots/insights/trend1.json
     :language: json
@@ -119,7 +119,7 @@ Key Metrics are displayed at the top level and are intended to serve as a summar
 A keymetric always has
 
 - A title ( "Death Toll" )
-- A percentage value ( "75%" )
+- A value which can be a percentage ( "75%" ) or simply a number ("24")
 - A caption for the value ( "Number GRRM has killed" )
 - A link ( & corresponding title ) to the source of the data ( "Tutorial" )
 
