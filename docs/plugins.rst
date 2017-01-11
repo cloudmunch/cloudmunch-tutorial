@@ -64,4 +64,4 @@ You can also add your own logo to a plugin. Just name the file: ``logo.png`` and
 
 .. note::
 
-  You can explore and inspect all plugin definitions with the API `/api/plugins/<plugin id>`. If you don't pass the ID, you'll get back definitions for *all* the plugins in the system
+    You can explore and inspect all plugin definitions with the API `/api/plugins/<plugin id>`. If you don't pass the ID, you'll get back definitions for *all* the plugins in the system

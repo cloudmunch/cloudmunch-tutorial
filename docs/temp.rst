@@ -26,8 +26,6 @@ Interface complex definition
     -  parameters: Imagine that a action is a method you call on CloudMunch's API, these are the parameters that method expects to see. Internally, these parameters may get converted into the inputs you saw above or used internally for some processing. In the action "authorize" below, the application and integration IDs are necessary since the integration will be updated with the access token returned by Google.
     -  next\_action: Tells CloudMunch what to do after the response comes back. In this case, CloudMunch makes another call to Google (passing the state it got back and expecting back an access token)
 
-
-
 =====================================
 Example: Insights with Hardcoded data
 =====================================
@@ -123,10 +121,6 @@ Troubleshooting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you see this message or don't see any cards, you've most likely forgotten to update or updated the wrong ID of the resource ID in the plugin. Update and redo the process of adding the plugin to CloudMunch.
-
-.. todo::
-  Change this example to avoid the user having to create a resource. Instead, do it implicitly from within the plugin
-
 
   In this example, we hardcoded the fields into the `interface` directly. If the values will never change, this approach is good enough. However, if you'd like the end-user to be able to configure these fields, you have more options
 

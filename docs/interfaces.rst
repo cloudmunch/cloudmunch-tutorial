@@ -25,7 +25,7 @@ This node lists all the actions possible on the `interface`.
 
 map
 ---
-This node lists a mapping which will be used to replace runtime variables when the request is made.
+Think of this node as a global object available to all actions. When the action is invoked, any keys that match this map's keys will be replaced with the map's values. In this example, any parameters which expect a emailID will get the current user's user ID
 
 .. literalinclude:: ../examples/interface_bugzilla_v1/bugzilla/definition.json
    :start-after: "Interface file for communicating with bugzilla"

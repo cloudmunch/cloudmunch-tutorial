@@ -1,6 +1,6 @@
-==========================================
-Example: Insights with Hardcoded Interface
-==========================================
+===================================================
+Example: Insights with data configured in Interface
+===================================================
 
 Lets try a full-fledged example. We'll be doing the following setup
 
@@ -76,10 +76,11 @@ The work is done by `Bugzilla.class.php <https://github.com/cloudmunch/cloudmunc
 
 - Get all resources of a particular type 
 - For each resource
-    - Fetch information from the it's integration
-    - Transform and store information in the format expected by the :doc:`insights <insights>` cards
+    
+    + Fetch information from it's integration
+    + Transform and store information as :doc:`insights <insights>` cards
 
-Here is the code in question 
+Here is the code
 
 .. literalinclude:: ../examples/plugin_bugzilla_v1/bugzilla/src/Bugzilla.class.php
    :language: php
@@ -87,6 +88,7 @@ Here is the code in question
    :end-before: End of process method
    :prepend: <?php
    :append: ?>
+   :dedent: 4
 
 There are three helpers used in the code. 
 
