@@ -49,8 +49,7 @@
             		$integrationID = $resource->integration_id;
             		//Fetch information for the resource (using the method you defined in the interface)
             		$response = $this->callInterfaceAction( $cmService, $integrationID, "get_bugs", array(
-            			assigned_to => $appInput->assigned_to,
-            			bugzilla_url => $appInput->bugzilla_url
+            			assigned_to => $appInput->assigned_to
             		) );
             		if ($response ===  false){
             			//Log error

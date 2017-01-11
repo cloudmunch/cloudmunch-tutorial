@@ -9,5 +9,4 @@ References
    	configuration_driven_ui
    	rebuild_services
    	troubleshooting
-   	insights
    	other_resources

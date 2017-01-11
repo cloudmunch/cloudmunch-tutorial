@@ -2,33 +2,43 @@
 Insights
 ========
 
-Insights in CloudMunch are categorized as "Cards" & "Key metrics". Both are visual representations of data but differ in intent and visibility. In both cases, the data is stored as JSON ( by a plugin ) in CloudMunch.
+Insights are simply data represented visually.
+
+In CloudMunch, insights are represented as "Cards" & "Key metrics". Both are still visual representations of data but differ in their intent and visibility. 
 
 Card
 ----
-
 A card is typically displayed under some category. Today, we support the following types of cards:
 
-- Trend
-- Doughnut
-- Kanban
-- Area Graph
+=================== ===================
+Type                Example
+=================== ===================
+Trend               |trend1|
+Doughnut            |doughnut1|
+Kanban              |kanban1|
+Area Graph          |area1|
+=================== =================== 
+
+.. |trend1| image:: screenshots/insights/trend1.png
+.. |trend2| image:: screenshots/insights/trend2.png
+.. |doughnut1| image:: screenshots/insights/doughnut1.png
+.. |kanban1| image:: screenshots/insights/kanban1.png
+.. |area1| image:: screenshots/insights/area1.png
+
+All cards are internally stored as JSONs. Below are a few examples of the JSONs and their corresponding cards
 
 Trend
 ~~~~~
 
-Example 1
-^^^^^^^^^
-The JSON
-
 .. literalinclude:: screenshots/insights/trend1.json
-	:language: json
+    :language: json
 
 produces
 
 .. figure:: screenshots/insights/trend1.png
     :alt: Trend
     :align: center
+
 
 Example 2
 ^^^^^^^^^
@@ -95,11 +105,10 @@ SDKs contain utility methods to store the data necessary for each card. For inst
 	"LannistersReport", "Lannisters Report", "Tutorial", "Death toll", $source,
 	$sourceURL, json_decode('["alive(4)","dead(1)"]') );
 
-Please refer to the SDKs for more information and examples.
+Please refer to the :ref:`refSDKs` for more information and examples.
 
 Key Metric
 ----------
-
 Key Metrics are displayed at the top level and are intended to serve as a summary or to highlight important information to users.
 
 .. figure:: screenshots/plugin_simple_insights_example/keymetric.png
@@ -116,4 +125,5 @@ A keymetric always has
 
 .. todo::
 	Add description for all the nodes in the insight cards
-	Add plugin method to invoke for each card
+.. todo::
+    Add plugin method to invoke for each card

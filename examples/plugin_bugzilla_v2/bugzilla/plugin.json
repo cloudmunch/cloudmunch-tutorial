@@ -15,13 +15,6 @@
     "main": "bugzilla/src/Bugzilla.class.php"
   },
   "inputs": {
-    "bugzilla_url": {
-      "type": "text",
-      "display": "yes",
-      "label": "Bugzilla Base URL",
-      "mandatory": true,
-      "hint": "Url of the Bugzilla server. Example https://landfill.bugzilla.org/bugzilla-5.0-branch"
-    },
     "assigned_to": {
       "type": "text",
       "display": "yes",
