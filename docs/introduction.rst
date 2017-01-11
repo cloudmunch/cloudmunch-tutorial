@@ -30,5 +30,3 @@ Or in "CloudMunch" language, we'll be configuring a `Task which will contain a `
 -  Resource
 -  (in an) Integration
 -  (which we'll use to write into a) Report and Card
-
-Please ensure you understand these concepts before you continue with the examples

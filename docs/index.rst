@@ -7,11 +7,7 @@ CloudMunch Tutorial
    :caption: Table of Contents
 
    introduction
-   insights
-   integrations
-   resources
-   interfaces
-   plugins
+   concepts
    first_application
    plugin_hello_world_example
    hardcoded_interface_example

@@ -4,12 +4,14 @@ Example: Hello World Plugin
 
 Lets start with the simplest plugin possible: one that simply logs "Hello world" into the logs and exits.
 
+Setup
+=====
 -  Download the contents of the folder `hello-world-plugin-v1 <https://github.com/cloudmunch/cloudmunch-tutorial/tree/master/examples/plugin_hello_world_v1>`__ to the folder "custom/plugins" inside the CloudMunch installation folder.
 
 - :doc:`rebuild_services`
 
--  Once the services are up, you can verify if the plugin has been added with the API ``api/plugins/hello_world``.
-
+Application
+===========
 -  Once CloudMunch is up, create a new task and try to add this plugin to the task.
 
 .. figure:: screenshots/cm-operations/add-plugin.gif
@@ -26,6 +28,6 @@ Lets start with the simplest plugin possible: one that simply logs "Hello world"
 
    Modify and run the task
 
-Troubleshooting 
-~~~~~~~~~~~~~~~
+Troubleshooting
+===============
 If you don't see the plugin in the ui, it may be because the JSON is not well formed or because of caching. Verify the JSON and clear cache

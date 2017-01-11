@@ -2,6 +2,8 @@
 Other resources
 ================
 
+.. _repos:
+
 CloudMunch Repos
 ================
 
