@@ -32,7 +32,7 @@ This node lists a mapping which will be used to replace runtime variables when t
    :end-before: "actions"
 
 .. todo::
-How to transform returned data from third-party systems, using output section.
+         How to transform returned data from third-party systems, using output section.
 
 .. note::
 
