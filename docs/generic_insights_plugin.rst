@@ -1,6 +1,6 @@
-=======================
-Generic Insights Plugin
-=======================
+================================
+Example: Generic Insights Plugin
+================================
 
 If you are following the :doc:`integration<insights_integration_inputs_example>` or :doc:`interface<hardcoded_interface_example>` approaches, there is also a Generic Insights plugin that you can use instead of writing your own
 
