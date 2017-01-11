@@ -120,8 +120,9 @@ A keymetric always has
 
 - A title ( "Death Toll" )
 - A value which can be a percentage ( "75%" ) or simply a number ("24")
-- A caption for the value ( "Number GRRM has killed" )
+- A subtitle for the value ( "Number GRRM has killed" )
 - A link ( & corresponding title ) to the source of the data ( "Tutorial" )
+- A time stamp as to when this was created. Please note that the "Value" itself may be old, but it was pulled into CloudMunch as per the time stamp.
 
 .. todo::
 	Add description for all the nodes in the insight cards
