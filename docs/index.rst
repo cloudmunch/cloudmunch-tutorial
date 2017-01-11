@@ -17,6 +17,7 @@ CloudMunch Tutorial
    hardcoded_interface_example
    insights_integration_inputs_example
    insights_plugin_inputs_example
+   generic_insights_plugin
    references
 
 TODO
