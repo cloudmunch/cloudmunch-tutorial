@@ -31,6 +31,9 @@ This node lists a mapping which will be used to replace runtime variables when t
    :start-after: "Interface file for communicating with bugzilla"
    :end-before: "actions"
 
+.. todo::
+How to transform returned data from third-party systems, using output section.
+
 .. note::
 
   You can explore and inspect all interfaces with the API `/api/interfaces/<interface id>`. If you don't pass the ID, you'll get back definitions for *all* the interfaces in the system
