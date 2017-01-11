@@ -13,7 +13,7 @@ A card is typically displayed under some category. Today, we support the followi
 =================== ===================
 Type                Example
 =================== ===================
-Trend               |trend1|
+Line                |trend1|
 Doughnut            |doughnut1|
 Kanban              |kanban1|
 Area Graph          |area1|
