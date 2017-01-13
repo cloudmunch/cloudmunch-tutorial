@@ -14,6 +14,7 @@ CloudMunch Tutorial
    insights_integration_inputs_example
    insights_plugin_inputs_example
    generic_insights_plugin
+   add_plugin_to_insight_pipeline
    references
 
 TODO
@@ -21,13 +22,5 @@ TODO
 .. todolist::
 
 ..    wizard_resource_hello_world_example
-..    plugin_configurable_example
-..    plugin_advanced_example
 ..    wizard_configuration_advanced
 ..    interface_configuration_advanced
-
-.. todo::
-   Remove the dummy field in the integration after the bug (which causes integrations without registrationFields to not be added) is resolved
-
-.. todo::
-   Remove the dummy field in the plugin examples after the bug (which causes plugins without fields to not get executed) is resolved

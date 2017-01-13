@@ -1,0 +1,75 @@
+{
+  "variables": {},
+  "tiers": {},
+  "name": "Insight Task",
+  "description": "Generates Insights for the application",
+  "category": "insights",
+  "application_id": "APP2017011209184729878",
+  "steps": {
+    "07493318132694142": {
+      "order": 0,
+      "parameters": {
+        "execute": "all",
+        "resource_type": "jira",
+        "log_level": "INFO"
+      },
+      "name": "JIRA Insights",
+      "plugin_id": "Insights-Jira",
+      "plugin_name": "",
+      "status": "enabled",
+      "start_time": "",
+      "end_time": "",
+      "raise_defect_on_failure": "no",
+      "abort_on_failure": "no",
+      "display": "yes",
+      "execute": "yes",
+      "output": {},
+      "retry_on_failure": "no",
+      "retry_count": "1",
+      "wait_time_before_retry": "1s",
+      "reports": []
+    },
+    "07493318132694143": {
+      "order": 1,
+      "parameters": {
+        "execute": "all",
+        "data_collection_period": "1 month ago"
+      },
+      "name": "Perforce Insights",
+      "plugin_id": "Insights-Perforce",
+      "plugin_name": "",
+      "status": "enabled",
+      "start_time": "",
+      "end_time": "",
+      "raise_defect_on_failure": "no",
+      "abort_on_failure": "no",
+      "display": "yes",
+      "execute": "yes",
+      "output": {},
+      "retry_on_failure": "no",
+      "retry_count": "1",
+      "wait_time_before_retry": "1s",
+      "reports": []
+    }
+  },
+  "archives": {},
+  "schedule": [
+    {
+      "name": "schedule",
+      "schedule_type": "time",
+      "crontab": "* * * * *"
+    }
+  ],
+  "tags": [],
+  "actions": [
+    {
+      "id": "Promote to test__dev"
+    }
+  ],
+  "created_date": "2017-01-12 09:22:25.78077",
+  "created_by": "vivek@cloudmunch.com",
+  "updated_by": "vivek@cloudmunch.com",
+  "updated_date": "2017-01-12 09:22:25.78077",
+  "id": "PIP2017011209222586481",
+  "application_name": "{$applications->name}"
+}

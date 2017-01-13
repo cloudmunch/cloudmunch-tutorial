@@ -42,7 +42,7 @@ Setup
 
 Application
 ===========
-- Create an :doc:`application<first_application>` and choose ``bugzilla`` as the resource 
+- Create an :doc:`application<first_application>` and choose `bugzilla` as the resource 
 - Add a new task
 - Add the `Generic Insights Plugin` to the task
 - In the plugin configuration screen

@@ -111,3 +111,9 @@ But the end user didn't enter any information in this example at all. How did it
 .. warning::
 
     Adding credential information directly is discouraged. Since interface definitions stored in plain text and are available through the API, any user will be able to read them. If storing credentials for use in an interface, store them in the :doc:`integration<insights_integration_inputs_example>`
+
+.. todo::
+   Remove the dummy field in the integration after the bug (which causes integrations without registrationFields to not be added) is resolved
+
+.. todo::
+   Remove the dummy field in the plugin examples after the bug (which causes plugins without fields to not get executed) is resolved
