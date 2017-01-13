@@ -16,35 +16,44 @@ Setup
 
 - Get the existing insight task definition using the :ref:`API<taskDef>`
 - Format the response
-- Add your plugin as the last step in the task (by specifying an one-up order value than the largest one already present in the task )
-
-    + The value used as key does not matter but has to be unique
+- Add your plugin as the last step in the task
 
 .. code-block:: json
-
+	
 	{
-        "order": 7,
-        "parameters": {
-        	"assigned_to": "justdave@syndicomm.com"
-        },
-        "name": "Tutorial Plugin",
-        "plugin_id": "bugzilla",
-        "plugin_name": "",
-        "status": "enabled",
-        "start_time": "",
-        "end_time": "",
-        "raise_defect_on_failure": "no",
-        "abort_on_failure": "no",
-        "display": "yes",
-        "execute": "yes",
-        "output": {},
-        "retry_on_failure": "no",
-        "retry_count": "1",
-        "wait_time_before_retry": "1s",
-        "reports": []
-      }
+		"047970604791053666": {
+	        "order": 7,
+	        "parameters": {
+	        	"assigned_to": "justdave@syndicomm.com"
+	        },
+	        "name": "Tutorial Plugin",
+	        "plugin_id": "bugzilla",
+	        "plugin_name": "",
+	        "status": "enabled",
+	        "start_time": "",
+	        "end_time": "",
+	        "raise_defect_on_failure": "no",
+	        "abort_on_failure": "no",
+	        "display": "yes",
+	        "execute": "yes",
+	        "output": {},
+	        "retry_on_failure": "no",
+	        "retry_count": "1",
+	        "wait_time_before_retry": "1s",
+	        "reports": []
+	    }
+	}
+
+.. note::
+
+	+ The value used as key does not matter but has to be unique
+	+ Note the order in the example above is 7. Use a value one-larger than the largest one already present in the task
 
 - Now update the definition using the same API
+  
+.. warning::
+
+	The data used in the content below is a snapshot of the task definition at the time of writing this tutorial. It may not be what is in your instance. Please do **not** copy-paste the command below as-is. Use the response from the API to construct the data
   
 .. code-block:: bash
 
