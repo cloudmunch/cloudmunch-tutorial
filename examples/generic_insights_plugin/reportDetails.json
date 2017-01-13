@@ -1,0 +1,32 @@
+[
+  {
+    "action": "get_bugs",
+    "reports": [
+      {
+        "name": "Bug Status",
+        "description": "Sample description",
+        "type": "doughnut",
+        "source_name": "bugs->0->assigned_to",
+        "source_url": "https://landfill.bugzilla.org/bugzilla-5.0-branch",
+        "data_path": {
+          "path": "bugs",
+          "target": "status"
+        },
+        "group": "Bugzilla"
+      },
+      {
+        "name": "Status",
+        "description": "Sample description",
+        "type": "kanban",
+        "source_name": "bugs->0->assigned_to",
+        "source_url": "https://landfill.bugzilla.org/bugzilla-5.0-branch",
+        "method": "COUNT",
+        "data_path": {
+          "path": "bugs",
+          "target": "status"
+        },
+        "group": "Bugzilla"
+      }
+    ]
+  }
+]

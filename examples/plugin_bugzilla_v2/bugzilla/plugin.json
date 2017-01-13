@@ -1,0 +1,27 @@
+{
+  "_created_by": "vivek@cloudmunch.com",
+  "documentation": {
+    "description": "A simple plugin to get data from bugzilla"
+  },
+  "author": "Vivek Kodira",
+  "id": "bugzilla",
+  "name": "Tutorial Bugzilla Plugin",
+  "tags": [],
+  "version": "1",
+  "status": "enabled",
+  "execute": {
+    "options": "-debug",
+    "language": "PHP",
+    "main": "bugzilla/src/Bugzilla.class.php"
+  },
+  "inputs": {
+    "assigned_to": {
+      "type": "text",
+      "display": "yes",
+      "label": "Bugs Assigned To User",
+      "mandatory": true,
+      "hint": ""
+    }
+  },
+  "outputs": {}
+}

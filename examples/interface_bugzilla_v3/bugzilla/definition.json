@@ -1,0 +1,18 @@
+{
+  "id": "bugzilla",
+  "name": "bugzilla",
+  "description": "Interface file for communicating with bugzilla",
+  "map": {
+    "bugzilla_url": "https://landfill.bugzilla.org/bugzilla-5.0-branch"
+  },
+  "actions": {
+    "get_bugs": {
+      "base_url": "{bugzilla_url}",
+      "path": "/rest/bug?component=Comp1&include_fields=id,assigned_to,creation_time,component,is_confirmed,is_open,last_change_time,priority,status,resolution",
+      "input": {
+        "assigned_to": "{assigned_to}"
+      },
+      "method": "GET"
+    }
+  }
+}

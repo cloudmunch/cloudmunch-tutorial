@@ -1,0 +1,14 @@
+{
+  "authors": [
+    {
+      "name":"Vivek Kodira",
+      "email": "vivek@cloudmunch.com"
+    }
+  ],
+  "require": {
+     "cloudmunch/sdk-php":"dev-master"
+  },
+  "autoload": {
+    "classmap": [ "src/"]
+  }
+}

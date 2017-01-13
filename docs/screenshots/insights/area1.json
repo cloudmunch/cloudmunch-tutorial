@@ -1,0 +1,80 @@
+{
+  
+      "name": "jiraScopeView",
+      "created_date": "2016-09-13 14:12:38.37389",
+      "created_by": "executor",
+      "updated_by": "executor",
+      "updated_date": "2016-09-13 14:12:39.68044",
+      "updated_by_pipeline": "PIP2016062707321643137",
+      "id": "INC2016091314123841217",
+      "application_id": "APP2016062707310349855",
+      "application_name": "Kube-OS",
+      "resource_id": "RES2016071906005445877",
+      "resource_name": "Insights",
+      "insight_report_id": "INR2016091314120189412",
+      "insight_report_name": "2016-09-13",
+      "data": {
+        "data": [
+          {
+            "label": "S0",
+            "open": 0,
+            "closed": 3
+          },
+          {
+            "label": "S1",
+            "open": 2,
+            "closed": 13
+          },
+          {
+            "label": "S2",
+            "open": 2,
+            "closed": 18
+          },
+          {
+            "label": "S3",
+            "open": 3,
+            "closed": 29
+          },
+          {
+            "label": "S4",
+            "open": 3,
+            "closed": 29
+          },
+          {
+            "label": "S5",
+            "open": 3,
+            "closed": 29
+          }
+        ],
+        "visualization_map": {
+          "plots": {
+            "x": [
+              "label"
+            ],
+            "y": [
+              "open",
+              "closed"
+            ]
+          }
+        },
+        "card_meta": {
+          "default": "area_y",
+          "url": "https://cloudmunch.atlassian.net/issues/?jql=project = Insights and issuetype in (Story) and fixVersion = 1.0",
+          "date": "2016-09-13",
+          "label": "Scope",
+          "source": "Insights",
+          "group": "Jira-ALM",
+          "description": "This viewcard provides the details on open and closed stories with respect to sprints, for the project Insights, configured in JIRA.",
+          "visualization_options": [
+            "area_y"
+          ],
+          "xaxis": {
+            "label": "sprints"
+          },
+          "yaxis": {
+            "label": "Number of Stories"
+          }
+        }
+      }
+    
+}

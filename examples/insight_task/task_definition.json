@@ -1,0 +1,180 @@
+{
+  "id": "insights",
+  "run": "yes",
+  "nodesToBeReplaced": {
+    "__REPLACE_APPLICATION_ID__": "app.id",
+    "__REPLACE_EXCEL_PATH__": "serverPath",
+    "__REPLACE_EXCEL_ASSET_ID__": "excelSource.id"
+  },
+  "pipeline": {
+    "variables": {},
+    "tiers": {},
+    "name": "Insight Task",
+    "description": "Generates Insights for the application",
+    "category": "insights",
+    "application_id": "__REPLACE_APPLICATION_ID__",
+    "steps": {
+      "07493318132694142": {
+        "order": 0,
+        "parameters": {
+          "execute": "all",
+          "resource_type": "jira",
+          "log_level": "INFO"
+        },
+        "name": "JIRA Insights",
+        "plugin_id": "Insights-Jira",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "03194189875083997": {
+        "order": 1,
+        "parameters": {
+          "execute": "all",
+          "resource_type": "sonarqube",
+          "build_number": "",
+          "log_level": "INFO"
+        },
+        "name": "SonarQube Insights",
+        "plugin_id": "Insights-SonarQube",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "06760063474706892": {
+        "order": 2,
+        "parameters": {
+          "group": "SonaQube",
+          "projection_unit": "sprint",
+          "projection_count": "7",
+          "key_metric_card_color": "#2c3e50"
+        },
+        "name": "Insights - SonarQube Trend",
+        "plugin_id": "Insights-SonarQubeTrend",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "07026270335520104": {
+        "order": 3,
+        "parameters": {
+          "execute": "all",
+          "resource_type": "artifactory"
+        },
+        "name": "Insights - JenkinsPipeline",
+        "plugin_id": "Insights-JenkinsPipeline",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "036806208518779293": {
+        "order": 4,
+        "parameters": {
+          "execute": "all",
+          "resource_type": "jenkins",
+          "log_level": "INFO"
+        },
+        "name": "Jenkins Insights",
+        "plugin_id": "Insights-Jenkins",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "010376157351585169": {
+        "order": 5,
+        "parameters": {
+          "group": "Jenkins",
+          "buildLimit": "10"
+        },
+        "name": "Insights - Jenkins Trend",
+        "plugin_id": "Insights-JenkinsTrend",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      },
+      "047970604791053595": {
+        "order": 6,
+        "parameters": {
+          "execute": "all",
+          "resource_type": "artifactory"
+        },
+        "name": "Insights - Artifactory",
+        "plugin_id": "Insights-Artifactory",
+        "plugin_name": "",
+        "status": "enabled",
+        "start_time": "",
+        "end_time": "",
+        "raise_defect_on_failure": "no",
+        "abort_on_failure": "no",
+        "display": "yes",
+        "execute": "yes",
+        "output": {},
+        "retry_on_failure": "no",
+        "retry_count": "1",
+        "wait_time_before_retry": "1s",
+        "reports": []
+      }
+    },
+    "archives": {}
+  }
+}

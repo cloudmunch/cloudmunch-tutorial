@@ -1,0 +1,74 @@
+{
+  "name": "jiraVelocityView",
+  "created_date": "2016-09-13 14:13:06.28740",
+  "created_by": "executor",
+  "updated_by": "executor",
+  "updated_date": "2016-09-13 14:13:07.36271",
+  "updated_by_pipeline": "PIP2016062707321643137",
+  "id": "INC2016091314130632587",
+  "application_id": "APP2016062707310349855",
+  "application_name": "Kube-OS",
+  "resource_id": "RES2016071906005445877",
+  "resource_name": "Insights",
+  "insight_report_id": "INR2016091314120189412",
+  "insight_report_name": "2016-09-13",
+  "data": {
+    "data": [
+      {
+        "label": "S0",
+        "Team": 48,
+        "Planned": 112
+      },
+      {
+        "label": "S1",
+        "Team": 184,
+        "xmark": "Current Sprint",
+        "Planned": 132
+      },
+      {
+        "label": "S2",
+        "Planned": 80
+      },
+      {
+        "label": "S3",
+        "Planned": 192
+      },
+      {
+        "label": "S4",
+        "Planned": 0
+      }
+    ],
+    "visualization_map": {
+      "plots": {
+        "x": [
+          "label"
+        ],
+        "y": [
+          "Team",
+          "Planned"
+        ]
+      }
+    },
+    "card_meta": {
+      "default": "line_default",
+      "url": "https://cloudmunch.atlassian.net/issues/?jql=project = Insights and issuetype in (Story) and fixVersion = 1.0",
+      "date": "2016-09-13",
+      "label": "Velocity",
+      "source": "Insights",
+      "group": "Jira-ALM",
+      "description": "This viewcard provides the details on the speed with which stories are being completed, for the project Insights, configured in JIRA.",
+      "visualization_options": [
+        "line_default"
+      ],
+      "xaxis": {
+        "label": "sprints"
+      },
+      "yaxis": {
+        "label": "Story points"
+      },
+      "toleranceDescription": "Velocity is as per the plan in **Insights**",
+      "toleranceHit": "hit",
+      "toleranceState": "success"
+    }
+  }
+}

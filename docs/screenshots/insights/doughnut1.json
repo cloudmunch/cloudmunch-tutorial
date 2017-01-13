@@ -1,0 +1,59 @@
+{
+  "name": "jiraRisksView",
+  "created_date": "2016-09-13 14:12:27.66374",
+  "created_by": "executor",
+  "updated_by": "executor",
+  "updated_date": "2016-09-13 14:12:28.64797",
+  "updated_by_pipeline": "PIP2016062707321643137",
+  "id": "INC2016091314122769160",
+  "application_id": "APP2016062707310349855",
+  "application_name": "Kube-OS",
+  "resource_id": "RES2016071906005445877",
+  "resource_name": "Insights",
+  "insight_report_id": "INR2016091314120189412",
+  "insight_report_name": "2016-09-13",
+  "data": {
+    "data": [
+      {
+        "label": "RiskSeverity",
+        "Major(7)": 7,
+        "Critical(1)": 1,
+        "Minor(1)": 1,
+        "Trivial(1)": 1
+      }
+    ],
+    "visualization_map": {
+      "plots": {
+        "sections": [
+          "Major(7)",
+          "Critical(1)",
+          "Minor(1)",
+          "Trivial(1)"
+        ]
+      },
+      "x": "140",
+      "y": "120"
+    },
+    "card_meta": {
+      "default": "doughnut",
+      "url": "https://cloudmunch.atlassian.net/issues/?jql=project = Insights and issuetype in (Risk) and fixVersion = 1.0",
+      "date": "2016-09-13",
+      "label": "Risks",
+      "source": "Insights",
+      "group": "Jira-ALM",
+      "description": "This viewcard provides the details on list of risks with severity, for the project Insights, configured in JIRA.",
+      "visualization_options": [
+        "doughnut"
+      ],
+      "xaxis": {
+        "label": ""
+      },
+      "yaxis": {
+        "label": ""
+      },
+      "toleranceDescription": "There is 1 critical risk in **Insights**.",
+      "toleranceState": "critical",
+      "toleranceHit": "hit"
+    }
+  }
+}
