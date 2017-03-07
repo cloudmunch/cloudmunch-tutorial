@@ -75,7 +75,11 @@ The JSON
 - For each action
 
 	+ one more more reports (node: ``reports``) is created with the returned response
-
+- The (node: ``data_path``) defines fields to calculate the graph.
+    + (node: ``path``)	is the root node in the response json.
+    + (node: ``target``) is the node in the reponse json based on which  aggregation is done.In the above example,  bugs will be categorised according to status and aggregated.
+    + (node: ``key``) and (node: ``value``) can be specified instead of (node: ``target``),if Kanban graph has to display a key value pair without aggregation.The value for  (node: ``method``) will be ADD in this case. 
+ 
 In this example, we created 
   	
 - a Doughnut titled 'Bug Status'

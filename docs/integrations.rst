@@ -16,13 +16,54 @@ registrationFields
 When an end user attempts to add an integration of this type, CloudMunch will ask for the information specified in this node. The node follows CloudMunch's :doc:`Configuration Driven UI<configuration_driven_ui>` pattern.
 
 .. literalinclude:: ../examples/integration_bugzilla_v2/bugzilla/definition.json
-   :start-after: "events": []
-   :end-before: "importFields"
+   :start-after: "registrationFields": {
+   :prepend: "registrationFields": {
 
 .. figure:: screenshots/interface_bugzilla_v2/integration_fields.png
     :align: center
 
     Integration screen
+ 
+authentication
+^^^^^^^^^^^^^^
+You can add (node: ``authentication``) under (node: ``registrationFields``), to specify the fields used to authenticate the user.
+For example,
+
+.. code-block:: json
+
+   {
+    "registrationFields": {
+      "appurl": {
+       "type": "text",
+       "display": "yes",
+       "label": "Application URL",
+       "mandatory": true,
+       "hint": "Application URL",
+       "validation_rules": []
+       },
+      "authentication": {
+       "display": "yes",
+       "type": "object",
+       "fields": {
+        "username": {
+          "type": "text",
+          "display": "yes",
+          "label": "User name",
+          "mandatory": true,
+          "hint": "User name"
+         },
+        "password": {
+          "type": "password",
+          "display": "yes",
+          "label": "Password",
+          "hint": "Enter user password"
+         }
+        }
+       }
+      }
+     }
+
+    
 
 Integration Logos
 ~~~~~~~~~~~~~~~~~
