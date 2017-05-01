@@ -44,7 +44,7 @@ Setup
 
 .. code-block:: bash
   
-  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/resource_bugzilla_v1/bugzilla ./custom/resources
+  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/resource_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/resources
 
 **Add the Plugin definition**
 
