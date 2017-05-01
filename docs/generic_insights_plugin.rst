@@ -17,7 +17,7 @@ Setup
 
 .. code-block:: bash
   
-  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/integration_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/integrations
+  $ cp -R ~/cloudmunch/cloudmunch-tutorial/examples/integration_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/integrations
 
 **Add the Resource Definition**
 
@@ -25,7 +25,7 @@ Setup
 
 .. code-block:: bash
   
-  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/resource_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/resources
+  $ cp -R ~/cloudmunch/cloudmunch-tutorial/examples/resource_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/resources
 
 **Add the Interface definition**
 
@@ -34,7 +34,7 @@ Setup
 
 .. code-block:: bash
   
-  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/interface_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/interfaces
+  $ cp -R ~/cloudmunch/cloudmunch-tutorial/examples/interface_bugzilla_v1/bugzilla ~/cloudmunch/Install/custom/interfaces
 
 *At this point, you'd normally be adding a custom plugin but that is not necessary here*
 

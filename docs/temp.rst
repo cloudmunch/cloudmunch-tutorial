@@ -78,7 +78,7 @@ The data we'll send to create the resource is below. Replace the ``application_i
 
 .. code-block:: bash
 
-  $ cp -r ~/cloudmunch/cloudmunch-tutorial/examples/plugin_simple_insights_example/gameofthrones ~/cloudmunch/Install/custom/plugins
+  $ cp -R ~/cloudmunch/cloudmunch-tutorial/examples/plugin_simple_insights_example/gameofthrones ~/cloudmunch/Install/custom/plugins
 
 -  :doc:`rebuild_services`
 
