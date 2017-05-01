@@ -31,39 +31,40 @@ For example,
 
 .. code-block:: json
 
-   {
+  {
     "registrationFields": {
       "appurl": {
-       "type": "text",
-       "display": "yes",
-       "label": "Application URL",
-       "mandatory": true,
-       "hint": "Application URL",
-       "validation_rules": []
-       },
+        "type": "text",
+        "display": "yes",
+        "label": "Application URL",
+        "mandatory": true,
+        "hint": "Application URL",
+        "validation_rules": []
+      },
       "authentication": {
-       "display": "yes",
-       "type": "object",
-       "fields": {
-        "username": {
-          "type": "text",
-          "display": "yes",
-          "label": "User name",
-          "mandatory": true,
-          "hint": "User name"
-         },
-        "password": {
-          "type": "password",
-          "display": "yes",
-          "label": "Password",
-          "hint": "Enter user password"
-         }
+        "display": "yes",
+        "type": "object",
+        "fields": {
+          "username": {
+            "type": "text",
+            "display": "yes",
+            "label": "User name",
+            "mandatory": true,
+            "hint": "User name"
+          },
+          "password": {
+            "type": "password",
+            "display": "yes",
+            "label": "Password",
+            "hint": "Enter user password"
+          }
         }
-       }
       }
-     }
+    }
+  }
 
-    
+.. warning::
+    Do **not** add authentication fields directly under ``registrationFields``. The CloudMunch system assumes they will only be present under the node ``authentication``. 
 
 Integration Logos
 ~~~~~~~~~~~~~~~~~
