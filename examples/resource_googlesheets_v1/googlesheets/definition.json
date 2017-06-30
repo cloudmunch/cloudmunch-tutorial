@@ -1,6 +1,8 @@
 {
   "id": "googlesheets",
-  "tags": [],
+  "tags": [
+    "release"
+  ],
   "type": "googlesheets",
   "integration": "googlesheets",
   "label": "Google Sheets",
