@@ -12,14 +12,35 @@ Infrastructure Requirements
 - CPU: Minium Dual core
 - Docker
 - Docker Compose
-- Internet access
+- Internet access (please ensure that there is connectivity to GitHub, S3, Docker Hub, Google Fonts & yum access for mod_ssl)
 
 Pre-requisites
 --------------
-Basic understanding of Docker Containers, images, Docker Compose are required to complete the steps below.
+Basic understanding of containers, images & docker-compose are required to complete the steps below.
 
 Installation
 ------------
+
+Interactive Installation Script (Supports Centos 7 and Redhat 7)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Make sure the user you are trying to install with has sudo permissions
+- Install git 
+
+.. code:: bash
+
+    sudo yum install git-all
+
+* Clone CloudMunch Install repo
+
+.. code:: bash
+	git clone https://github.com/cloudmunch/Install.git
+
+* If you want to run CloudMunch on SSL (https), please follow instructions from [here](https://github.com/cloudmunch/Install#ssl-setup-optional)
+* Navigate within Install directory and execute install script
+```
+sh ./install.sh
+```
 
 Mac OS
 ~~~~~~
@@ -38,7 +59,7 @@ Linux
 - Logout and login again
 - Start Docker as service `sudo service docker start`
 
-Docker Compose
+docker-compose
 ~~~~~~~~~~~~~~
 - Change to root and install docker-compose from any stable `release <https://github.com/docker/compose/releases/>`_
 - Make docker-compose executable `chmod +x /usr/local/bin/docker-compose`
